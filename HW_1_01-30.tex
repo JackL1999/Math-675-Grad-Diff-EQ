@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}                         
+\pagestyle{plain} %-- Document Set Up Command
+
+%-- Document Setup & Layout
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[
+  letterpaper,
+  left=1in,
+  right=1in,
+  textheight=9.5in,
+  bmargin=0.75in  % Adjust this value to push the footer down
+]{geometry}
+
+%-- Color & Text Formatting
+\usepackage[svgnames]{xcolor} 
+\usepackage{textcomp}
+\usepackage{ulem}
+
+%-- Math Packages
+\usepackage{amsmath}     
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{bm}
+
+%-- Graphics and Figures
+\usepackage{graphicx}    
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circledtext}
+\usepackage{float}
+\usetikzlibrary{arrows.meta}
+%-- Tables
+\usepackage{array}      
+\usepackage{tabularx}
+
+%-- Lists
+\usepackage{enumitem}    
+%\usepackage{enumerate}
+\usepackage{tasks}
+
+%-- TikZ Libraries
+\usetikzlibrary{shapes.geometric} 
+
+%-- Header/Footer
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{Jack Lingbeck} % Left header with name
+\fancyhead[R]{Janurary 30th, 2026} % Right header with date
+\renewcommand{\headrulewidth}{0.4pt} % Horizontal line below the header
+\rfoot{Page \thepage}
+\lfoot{Homework 1 Unit 1}
+
+\begin{document}
+\large
+\begin{center}
+\fbox{\begin{tabular}{c}
+\bf Math 675 Spring 2026: \\
+\bf Homework 1 Unit ? \\
+\bf Due Tuesday, Janurary 3rd, 2026\\
+\end{tabular}}
+\end{center}
+
+\section*{Question 1:}
+For each system of differential equations in a-d below
+\begin{itemize}
+\item Plot the change vector using the points $(1,1),(1,-1),(-1,-1),(-1,1)$
+\item Use the vector field to classify the equilibrium point(s) as stable, \\ unstable, a saddle point, an unstable spiral,
+a stable spiral, or a center.
+\end{itemize}
+\begin{minipage}[t]{0.45\textwidth}
+\begin{enumerate}
+    \item[(a)] $x' = -x, \quad y' = -5y$ \\
+    Coupled: No;  \\ Equilibrium Points: $(0,0)$
+    
+    \item[(b)] $x' = 4x - y, \quad y' = 2x + y$ \\
+    Coupled: Yes;  \\ Equilibrium Points: $(0,0)$
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\begin{enumerate}
+    \item[(c)] $x'_1 = x_2, \quad x'_2 = -2x_1 - 3x_2$ \\
+    Coupled: Yes;  \\ Equilibrium Points: $(0,0)$
+    \item[(d)] $x' = 5x + 2y, \quad y' = -17x -5y$ \\
+    Coupled: Yes;  \\ Equilibrium Points: $(0,0)$
+\end{enumerate}
+\end{minipage}
+
+\section*{Question 2:}
+\section*{Question 3:}
+
+\end{document}
