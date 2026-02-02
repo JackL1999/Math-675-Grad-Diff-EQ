@@ -1,0 +1,17 @@
+# Ignore temporary LaTeX files
+*.aux
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+# Ignore any other temporary files you don't want to commit
+*.bbl
+*.blg
+*.lof
+*.lot
+*.toc
+*.out
+*.nav
+*.snm
+*.vrb
+*.dvi

@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Remove All LaTeX Temporary Files",
+            "type": "shell",
+            "command": "",
+            "windows": {
+                "command": "./cleanup.bat"
+            },
+            "linux": {
+                "command": "./cleanup.sh"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
