@@ -206,6 +206,53 @@ a stable spiral, or a center.
 
 \vspace{6cm}
 
+% QUESTION 4 %
+\begin{minipage}[t]{0.50\textwidth}
+    \vspace{-2cm}
+\begin{enumerate}
+    \item[(d)] $x' = 5x + 2y, \quad y' = -17x - 5y$ \\
+    Coupled: Yes;  \\ 
+    EPs: Set $x'=0, y'=0$ \\
+    $\left\{\begin{alignedat}{3} 4x &{}-{} y &&{}={} 0 \\ 2x &{}+{} y &&{}={} 0\end{alignedat}\right.
+	\rightarrow
+    \left\{\begin{alignedat}{3} 4x &  && = y \\ 2x &+ y &&= 0\end{alignedat}\right.
+	\\
+    \left\{\begin{alignedat}{3} 4x &  && = y \\ 2x &+ 4x &&= 0\end{alignedat}\right.
+	\rightarrow
+    \left\{\begin{alignedat}{3} 4x &  && = y \\ 6x &  &&= 0\end{alignedat}\right.
+	\\
+    \left\{\begin{alignedat}{3} 4x && = y \\ x &&= 0\end{alignedat}\right.
+    \rightarrow
+    \left\{\begin{alignedat}{3} 4(0) && = 0 \\ x &&= 0\end{alignedat}\right.
+    \rightarrow
+    \left\{\begin{alignedat}{3} y && = 0 \\ x &&= 0\end{alignedat}\right.
+	$ \\
+    Thus, the EP is $(0,0)$
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.40\textwidth}
+    \renewcommand{\arraystretch}{1.2} % Adds a little vertical breathing room
+    \begin{tabular}{|c|c|} 
+        \hline
+        $(x,y)$ & $(x_1',x_2')=(x_2,-2x_1 - 3x_2y)$ \\
+        \hline 
+        $(1,1)$   & $(-(1),-5(1))=(-1,-5)$ \\ 
+        $(1,-1)$  & $(-(1),-5(-1))=(-1,5)$ \\ 
+        $(-1,-1)$ & $(-(-1),-5(-1))=(1,5)$   \\ 
+        $(-1,1)$  & $(-(-1),-5(1))=(1,-5)$  \\ 
+        \hline
+    \end{tabular}
+\end{minipage}
+
+\begin{figure}[H]
+    \includegraphics[width=0.5\textwidth]{Homework_1_Images/HW_1_Q1dVF.pdf}
+    \hspace{1cm}
+    \includegraphics[width=0.5\textwidth]{Homework_1_Images/HW_1_Q1d.pdf}
+\end{figure}
+
+\vspace{6cm}
+
 \section*{Question 2:}
 Let $a \in \mathbb{R}$ be a parameter. Consider the system of differential equations
 $$x'(t) = 2x, \quad \quad y'(t) = ay$$
@@ -267,24 +314,6 @@ a stable spiral, or a center.
     \item[$\bullet$] $(a = 2)$: EP: $(0,0)$ and this is unstable
 \end{itemize}
 \end{itemize}
-
-%\centering % Center the TikZ picture within its minipage
-%
-%    \begin{tikzpicture}[scale=0.35]
-%        \draw[gray!15,step=1cm] (-8,-8) grid (8,8);
-%        \draw[line width=0.2mm, -latex] (-8,0) -- (8.2,0) node[right] {$x$};
-%        \foreach \x in {-8,...,8} \draw (\x,.1)--(\x,-.1);
-%        \draw[line width=0.2mm,  -latex] (0,-8) -- (0,8.2) node[above] {$y$};
-%        \foreach \y in {-8,...,8} \draw (.1,\y)--(-.1,\y);
-%        
-%        \draw[red,line width=1pt] plot[domain= -2:2] (\x,{2*\x+4}) node[font=\tiny] at (2.5, 7) {A};
-%        \fill[red] (-2, 0) circle (0.2);
-%        \draw[blue,line width=1pt] plot[domain= -6:2] (\x,{-0.25*\x*\x+4}) node[font=\tiny] at (-4.5, -3.5) {B};
-%        \draw[blue] (2, 3) circle (0.2);
-%        \draw[green,line width=1pt, latex-] plot[domain= -8:6] (\x,{-0.5*\x+1}) node[font=\tiny] at (5.5, -3) {C};
-%        \fill[green] (6, -2) circle (0.2);
-%        \draw[cyan,line width=1pt, latex-latex] plot[domain= -7:7] (\x,{0.25*\x*\x-4}) node[font=\tiny] at (-6, 7) {D};    
-%    \end{tikzpicture}
  
 \vspace{10cm}
 
@@ -303,6 +332,14 @@ $$x' = a(t)x$$
 Future knowledge: Hey look integrating factor!!
 \item[(b)] Prove that your formula gives the general solution of this system. Hint: follow the sketch of proof done on
 the first day of class
+
+First, let $u(t)$ be any solution and let's differentiate $f(t) = u(t)e^{\int -a(t) dt}$
+$$\frac{d}{dt} f(t) = \frac{d}{dt} u(t)e^{\int a(t) dt}$$
+$$f'(t) = \frac{d}{dt}\left(u(t)\right)e^{\int -a(t) dt} + u(t)\left(\frac{d}{dt}e^{\int -a(t) dt}\right)$$
+$$f'(t) = u'(t)$$
+\\\\
+Definition of The Fundamental Theorem of Calculus: \\ 
+\textit{If $f$ is continuous on $[a,b]$ and $g(x) = \int_{a}^{x} f(t) dt$ then $g'(x) = f(x)$}
 \begin{flalign*}
     x'(t) &= a(t)x(t) \\
     \frac{dx}{dt}\left(Ce^{\int a(t) dt}\right) &= a(t)\left(Ce^{\int a(t) dt}\right) \\
