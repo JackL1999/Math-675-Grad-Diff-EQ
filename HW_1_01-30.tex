@@ -334,12 +334,20 @@ Future knowledge: Hey look integrating factor!!
 the first day of class
 
 First, let $u(t)$ be any solution and let's differentiate $f(t) = u(t)e^{\int -a(t) dt}$
-$$\frac{d}{dt} f(t) = \frac{d}{dt} u(t)e^{\int a(t) dt}$$
-$$f'(t) = \frac{d}{dt}\left(u(t)\right)e^{\int -a(t) dt} + u(t)\left(\frac{d}{dt}e^{\int -a(t) dt}\right)$$
-$$f'(t) = u'(t)$$
-\\\\
+Given that $x(t)=Ce^{\int a(t)dt}$, want to show that $f(t) = 0$ \\
+Second, we show uniqueness:
+\begin{align*}    
+\frac{d}{dt} f(t) &= \frac{d}{dt} u(t)e^{\int a(t) dt} \\
+      &= \frac{d}{dt}\left(u(t)\right)e^{\int -a(t) dt} + u(t)\left(\frac{d}{dt}e^{\int -a(t) dt}\right) \\
+      &= u'(t)e^{\int -a(t)dt} + u(t)\left(\frac{d}{dt}\int -a(t)dt\right)e^{\int -a(t)dt} \\
+      &= u'(t)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+      &= \left(a(t)Ce^{\int a(t)dt}\right)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+      &= a(t)u(t)e^{\int a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+\frac{d}{dt} f(t) &= a(t)f(t) - a(t)f(t) = 0
+\end{align*}
 Definition of The Fundamental Theorem of Calculus: \\ 
-\textit{If $f$ is continuous on $[a,b]$ and $g(x) = \int_{a}^{x} f(t) dt$ then $g'(x) = f(x)$}
+\textit{If $f$ is continuous on $[a,b]$ and $g(x) = \int_{a}^{x} f(t) dt$ then $g'(x) = f(x)$} \\
+First, we show existence:
 \begin{flalign*}
     x'(t) &= a(t)x(t) \\
     \frac{dx}{dt}\left(Ce^{\int a(t) dt}\right) &= a(t)\left(Ce^{\int a(t) dt}\right) \\
@@ -347,6 +355,12 @@ Definition of The Fundamental Theorem of Calculus: \\
     a(t)\left(Ce^{\int a(t) dt}\right) &= a(t)\left(Ce^{\int a(t) dt}\right) \\
     RHS &= LHS
 \end{flalign*}
+%
+%   $$x'(t) = a(t)x(t)$$
+%    $$\frac{dx}{dt}\left(Ce^{\int a(t) dt}\right) = a(t)\left(Ce^{\int a(t) dt}\right)$$
+%    $$\frac{dx}{dt}\left(\int a(t) dt\right)\left(Ce^{\int a(t) dt}\right) = a(t)\left(Ce^{\int a(t) dt}\right)$$
+%    $$a(t)\left(Ce^{\int a(t) dt}\right) = a(t)\left(Ce^{\int a(t) dt}\right)$$
+%    $$RHS = LHS$$
 Thus, since both sides are equal, then $x(t) = Ce^{\int a(t) dt}$ is in fact the general solution.
 Although, I do sense some explotation of the Fundamental Theorem of Calculus, since we differentiated an integral a bit too easily.
 \end{itemize}
