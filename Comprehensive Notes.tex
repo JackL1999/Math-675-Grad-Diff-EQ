@@ -1,0 +1,156 @@
+\documentclass[10pt]{article}                         
+\pagestyle{plain} %-- Document Set Up Command
+
+%-- Document Setup & Layout
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[
+  letterpaper,
+  left=0.80in,
+  right=0.80in,
+  textheight=9.5in,
+  bmargin=0.75in  % Adjust this value to push the footer down
+]{geometry}
+
+%-- Color & Text Formatting
+\usepackage[svgnames]{xcolor} 
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{textcomp}
+\usepackage{ulem}
+\usepackage{graphicx}
+
+%-- Math Packages
+\usepackage{amsmath}     
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{bm}
+
+%-- Graphics and Figures
+\usepackage{graphicx}    
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circledtext}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%-- Tables
+\usepackage{array}      
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+
+%-- Lists
+\usepackage{enumitem}    
+%\usepackage{enumerate}
+\usepackage{tasks}
+\tcbuselibrary{theorems}
+\usepackage{hyperref}
+\usetikzlibrary{shapes.geometric} 
+\usetikzlibrary{arrows.meta}
+
+%-- Header/Footer
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{Your Name} % Left header with name
+\fancyhead[R]{October 14th 2025} % Right header with date
+\renewcommand{\headrulewidth}{0.4pt} % Horizontal line below the header
+
+\newenvironment{AndreaBox}[1]{
+\begin{tcolorbox}[
+    title=#1,
+    colback=white,
+    colframe=Fuchsia,
+    coltitle=white,
+    fonttitle=\bfseries,
+    colback=white,
+    rounded corners,
+    boxrule=0.5pt,
+    top=1mm, bottom=1mm, left=2mm, right=-2mm, % right padding creates the long bar
+    rounded corners,
+    boxrule=0.5pt,
+] \raggedright
+}{\end{tcolorbox}}
+
+\begin{document}
+
+% Main title
+\begin{center}
+    \Large \textbf{Comprehensive Exam Notes} \\
+    \vspace{0.2cm}
+    \normalsize Here we go!
+\end{center}
+
+\section*{Section 1: Graduate Algebra}
+
+\section*{Section 2: Real Analysis}
+\begin{AndreaBox}{WEEK 1/2: Convergence}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 1}}
+        \item State and check the definitions of pointwise and uniform convergence for sequences and series of functions.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 2}}
+        \item Apply the Weierstrass $M$-test.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 3}}
+        \item Prove and use the theorem relating continuity and uniform convergence.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 4}}
+        \item State and check the definition of uniform continuity.
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{WEEK 4: Fourier Series Part 1}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 5}}
+        \item Describe how we derive the formulas for computing the coefficients of the Fourier series.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 6}}
+        \item Compute the Fourier series for simple examples. “Simple” here means that \\
+                the integrals required to compute the coefficients don’t take forever to compute.
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{WEEK 4: MISSING FOURIER SERIES PART 2}
+
+\end{AndreaBox}
+
+\begin{AndreaBox}{WEEK 8: The Space $L^2$: Part 1}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 7}}
+        \item State the definition of $L_2([a,b])$. Check if a given function is or is not in $L_2([a,b])$.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 8}}
+        \item State and prove the Cauchy-Schwartz inequality and the Minkowski inequality.
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{WEEK 9: The Space $L^2$: Part 2}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 9}}
+        \item State, check, and use the definition of a norm.
+        
+        \item {\color{RoyalBlue}\textbf{Learning Goal 10}}
+        \item Identify complete normed vector spaces and explain why a space is or is not a complete normed vector space.
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{WEEK 10: Linear Transformations}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 11}}
+        \item State the definition of a bounded linear operator. Use the definition in proofs.
+    \end{itemize}
+\end{AndreaBox}
+\section*{Section 3: Numerical Analysis}
+
+\section*{Section 4: Complex Analysis}
+
+\section*{Section 5: Topology}
+
+\section*{Section 6: Differential Equations}
+
+
+\end{document}
