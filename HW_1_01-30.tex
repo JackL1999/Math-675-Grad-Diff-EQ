@@ -180,7 +180,7 @@ a stable spiral, or a center.
     \renewcommand{\arraystretch}{1.2} % Adds a little vertical breathing room
     \begin{tabular}{|c|c|} 
         \hline
-        $(x,y)$ & $(x_1',x_2')=(x_2,-2x_1 - 3x_2y)$ \\
+        $(x,y)$ & $(x_1',x_2')=(x_2,-2x_1 - 3x_2)$ \\
         \hline 
         $(1,1)$   & $(-(1),-5(1))=(-1,-5)$ \\ 
         $(1,-1)$  & $(-(1),-5(-1))=(-1,5)$ \\ 
@@ -219,16 +219,16 @@ a stable spiral, or a center.
 \end{enumerate}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.40\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
     \renewcommand{\arraystretch}{1.2} % Adds a little vertical breathing room
     \begin{tabular}{|c|c|} 
         \hline
-        $(x,y)$ & $(x_1',x_2')=(x_2,-2x_1 - 3x_2y)$ \\
+        $(x,y)$ & $(x_1',x_2')=(5x+2y,-17x-5y)$ \\
         \hline 
-        $(1,1)$   & $(-(1),-5(1))=(-1,-5)$ \\ 
-        $(1,-1)$  & $(-(1),-5(-1))=(-1,5)$ \\ 
-        $(-1,-1)$ & $(-(-1),-5(-1))=(1,5)$   \\ 
-        $(-1,1)$  & $(-(-1),-5(1))=(1,-5)$  \\ 
+        $(1,1)$   & $(5+2,-17-5)=(7,-22)$ \\ 
+        $(1,-1)$  & $(5-2,-17+5)=(3,-12)$ \\ 
+        $(-1,-1)$ & $(-5-2,17+5)=(-7,22)$   \\ 
+        $(-1,1)$  & $(-5+2,17+5)=(-3,12)$  \\ 
         \hline
     \end{tabular}
 \end{minipage}
@@ -318,23 +318,12 @@ $$x' = a(t)x$$
     x(t) &= Ce^{\int a(t) dt} \\ 
 \end{flalign*}
 Future knowledge: Hey look integrating factor!!
+\vspace{12cm}
 \item[(b)] Prove that your formula gives the general solution of this system. Hint: follow the sketch of proof done on
 the first day of class
 
 First, let $u(t)$ be any solution and let's differentiate $f(t) = u(t)e^{\int -a(t) dt}$
 Given that $x(t)=Ce^{\int a(t)dt}$, want to show that $f(t) = 0$ \\
-Second, we show uniqueness:
-\begin{align*}    
-\frac{d}{dt} f(t) &= \frac{d}{dt} u(t)e^{\int a(t) dt} \\
-      &= \frac{d}{dt}\left(u(t)\right)e^{\int -a(t) dt} + u(t)\left(\frac{d}{dt}e^{\int -a(t) dt}\right) \\
-      &= u'(t)e^{\int -a(t)dt} + u(t)\left(\frac{d}{dt}\int -a(t)dt\right)e^{\int -a(t)dt} \\
-      &= u'(t)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
-      &= \left(a(t)Ce^{\int a(t)dt}\right)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
-      &= a(t)u(t)e^{\int a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
-\frac{d}{dt} f(t) &= a(t)f(t) - a(t)f(t) = 0
-\end{align*}
-Definition of The Fundamental Theorem of Calculus: \\ 
-\textit{If $f$ is continuous on $[a,b]$ and $g(x) = \int_{a}^{x} f(t) dt$ then $g'(x) = f(x)$} \\
 First, we show existence:
 \begin{flalign*}
     x'(t) &= a(t)x(t) \\
@@ -350,6 +339,23 @@ First, we show existence:
 %    $$a(t)\left(Ce^{\int a(t) dt}\right) = a(t)\left(Ce^{\int a(t) dt}\right)$$
 %    $$RHS = LHS$$
 Thus, since both sides are equal, then $x(t) = Ce^{\int a(t) dt}$ is in fact the general solution.
-Although, I do sense some explotation of the Fundamental Theorem of Calculus, since we differentiated an integral a bit too easily.
+Although, I do sense some explotation of the Fundamental Theorem of Calculus, since we differentiated an integral a bit too easily.\\
+
+%Definition of The Fundamental Theorem of Calculus: \\ 
+%\textit{If $f$ is continuous on $[a,b]$ and $g(x) = \int_{a}^{x} f(t) dt$ then $g'(x) = f(x)$} \\
+Second, we show uniqueness:
+\begin{align*}    
+\frac{d}{dt} f(t) &= \frac{d}{dt} u(t)e^{\int a(t) dt} \\
+      &= \frac{d}{dt}\left(u(t)\right)e^{\int -a(t) dt} + u(t)\left(\frac{d}{dt}e^{\int -a(t) dt}\right) \\
+      &= u'(t)e^{\int -a(t)dt} + u(t)\left(\frac{d}{dt}\int -a(t)dt\right)e^{\int -a(t)dt} \\
+      &= u'(t)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+      &= \left(a(t)Ce^{\int a(t)dt}\right)e^{\int -a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+      &= a(t)u(t)e^{\int a(t)dt} - u(t)a(t)e^{\int -a(t)dt} \\
+\frac{d}{dt} f(t) &= a(t)f(t) - a(t)f(t) = 0
+\end{align*}
+
+This, our solution does in fact give the general solution to this system above! 
+I'm about 95\% confident in the reasoning, but I feel like I am missing the ultimate punchline
+to solidify why the derivative being zero means something impactful or why the solution multiplied by the integrating factor is a constant
 \end{itemize}
 \end{document}
