@@ -76,18 +76,18 @@
 \pagestyle{fancy}
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{Jack Lingbeck} % Left header with name
-\fancyhead[R]{Janurary 30th, 2026} % Right header with date
+\fancyhead[R]{February 10th, 2026} % Right header with date
 \renewcommand{\headrulewidth}{0.4pt} % Horizontal line below the header
 \rfoot{Page \thepage}
-\lfoot{Homework 2 Unit 1}
+\lfoot{Homework 2}
 
 \begin{document}
 \large
 \begin{center}
 \fbox{\begin{tabular}{c}
 \bf Math 675 Spring 2026: \\
-\bf Homework 1 Unit ? \\
-\bf Due Tuesday, Janurary 3rd, 2026\\
+\bf Homework 2 \\
+\bf Due Tuesday, February 10th, 2026\\
 \end{tabular}}
 \end{center}
 
@@ -196,7 +196,9 @@ Consider the uncoupled system: $$x'=3x, y'=-y$$
     that the equilibrium point at the origin is a saddle point. This is because along the x-axis,
     the solutions diverge away from the origin, while along the y-axis, the solutions converge towards the origin. \\\\
     We can also see this as we take limits to positive and negitive \\ infinity of $x(t)=x_0 e^{3t}$ and $y(t)=y_0 e^{-t}$
-    similar to what we have above, \\ As $t\to +\infty$, $x(t) \to +\infty$ and $y(t) \to 0$, \\ As $t\to -\infty$, $x(t) \to -\infty$ and $y(t) \to 0$. \\
+    similar to what we have above, \\\\ 
+    As $t\to +\infty$, $x(t) \to +\infty$ and $y(t) \to 0$, \\\\ 
+    As $t\to -\infty$, $x(t) \to -\infty$ and $y(t) \to 0$. \\\\
     Because the limits for $y(t)$ are both $0$ yet the sign of infinity changes for $x(t)$, this tells us that this equilibrium point is a saddle point
     \vspace{5cm}
     \item[e)] Now we want to use Mathematica to plot the full phase portrait of this system. 
@@ -238,13 +240,13 @@ Consider the uncoupled system: $$x'=-5x, y'=-y$$
     Since $e^{4t}$ increases to infinity as $t \to +\infty$, then the whole limit
     will also approach infinity. The only condition we need is that $x_0 \neq 0$ to ensure 
     that the denominator does not equal zero, which would make the limit undefined.
-    
+    \\\\
     \item[d)] Conclude that, except for the trajectory along the x-axis, 
     all other solution curves asymtotically converge to the x-axis as $t \to +\infty$.
     $$\lim_{t \to +\infty} x_0e^{-5t} = 0 \hspace{3cm} \lim_{t \to +\infty} y_0e^{-t} = 0$$
     Since we see that both solutions converge to 0, this implies that the slopes also converge 
     to horizontal lines, thus they become parrellel to the x-axis.
-
+    \\\\
     \item[e)] Conclude that, except for the trajectory along the x-axis, 
     all other solution curves asymtotically converge to the y-axis as $t \to -\infty$.
     $$\lim_{t \to -\infty} x_0e^{-5t} = \infty \hspace{3cm}  \lim_{t \to -\infty} y_0e^{-t} = \infty$$
