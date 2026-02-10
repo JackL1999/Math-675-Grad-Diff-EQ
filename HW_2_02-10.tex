@@ -241,17 +241,17 @@ Consider the uncoupled system: $$x'=-5x, y'=-y$$
     will also approach infinity. The only condition we need is that $x_0 \neq 0$ to ensure 
     that the denominator does not equal zero, which would make the limit undefined.
     \\\\
-    \item[d)] Conclude that, except for the trajectory along the x-axis, 
-    all other solution curves asymtotically converge to the x-axis as $t \to +\infty$.
-    $$\lim_{t \to +\infty} x_0e^{-5t} = 0 \hspace{3cm} \lim_{t \to +\infty} y_0e^{-t} = 0$$
-    Since we see that both solutions converge to 0, this implies that the slopes also converge 
-    to horizontal lines, thus they become parrellel to the x-axis.
+    \item[d)] Conclude that, except for the trajectory along the y-axis, 
+    all other solution curves asymtotically converge to the y-axis as $t \to +\infty$.
+    $$\lim_{t \to +\infty} \frac{y(t)}{x(t)} = \lim_{t \to +\infty} \frac{y_0}{x_0} e^{4t} = \infty$$
+    We see that as long as $x_0 \neq 0$, which would technically make the slope \\ already be parallel to the y-axis, 
+    this implies that the slopes also converge to vertical lines, thus they become parallel to the y-axis eventually.
     \\\\
     \item[e)] Conclude that, except for the trajectory along the x-axis, 
-    all other solution curves asymtotically converge to the y-axis as $t \to -\infty$.
-    $$\lim_{t \to -\infty} x_0e^{-5t} = \infty \hspace{3cm}  \lim_{t \to -\infty} y_0e^{-t} = \infty$$
-    Since we see that both solutions converge to $\infty$, this implies that the slopes also converge 
-    to vertical lines, thus they become parrellel to the y-axis.
+    all other solution curves asymtotically converge to become parallel to the x-axis as $t \to -\infty$.
+    $$\lim_{t \to -\infty} \frac{y(t)}{x(t)}  = \lim_{t \to -\infty} \frac{y_0}{x_0} e^{4t} = 0$$
+    We see that as long as $y_0 \neq 0$, which would already make the slope be parallel to the x-axis, 
+    this implies that the slopes also converge to vertical lines, thus they become parallel to the x-axis eventually.
 
 \end{enumerate}
 
