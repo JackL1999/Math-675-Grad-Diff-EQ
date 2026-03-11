@@ -50,13 +50,11 @@
 \pgfplotsset{compat=1.18}
 
 \tikzset{
-    phase arrow/.style={
+    phase arrow right/.style={
         postaction={decorate,
             decoration={
                 markings,
-                mark=at position 0.1 with {\arrow{Stealth}},
-                mark=at position 0.3 with {\arrow{Stealth}},
-                mark=at position 0.7 with {\arrow{Stealth}},
+                mark=at position 0.4 with {\arrow{Stealth}},
                 mark=at position 0.9 with {\arrow{Stealth}}
             }
         }
@@ -65,9 +63,7 @@
         postaction={decorate,
             decoration={
                 markings,
-                mark=at position 0.1 with {\arrow{Stealth[reversed]}},
-                mark=at position 0.3 with {\arrow{Stealth[reversed]}},
-                mark=at position 0.7 with {\arrow{Stealth[reversed]}},
+                mark=at position 0.4 with {\arrow{Stealth[reversed]}},
                 mark=at position 0.9 with {\arrow{Stealth[reversed]}}
             }
         }
@@ -118,11 +114,128 @@
     $\hspace*{2cm}\begin{array}{rr} 1v_1 + 1v_2 &=0 \\ 1v_1 + 1v_2 &=0 \end{array} 
     \longrightarrow \quad v_1=-v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} -1 \\ 1 \end{array}\right]$
 
-    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}e^{2t} + c_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}e^{\frac{1}{2}t}$
+    \vspace{2cm}
 
-    \item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -3\\ 8 & -6 \end{pmatrix} \mathbf{x}$
-    \item[c)] $\mathbf{x'} = \begin{pmatrix} 3 & -2 \\ 4 & -1 \end{pmatrix} \mathbf{x}$
-    \item[d)] $\mathbf{x'} = \begin{pmatrix} 2 & -\frac{5}{2} \\ \frac{9}{5} & -1 \end{pmatrix} \mathbf{x}$
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}e^{2t} + c_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}e^{\frac{1}{2}t}$
+    \\\\
+    If we take the limit as $t$ approaches infinity, we can notice both terms head to infinity, but notice that the dominant term is the one with $\lambda_1 = 2$, \\ so all trajectories will be parellel to the line $y = x$ \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1a.pdf}
+    \end{figure}
+    \vspace{12cm}
+
+
+\item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -3\\ 8 & -6 \end{pmatrix} \mathbf{x}$\\
+    $\left| \begin{array}{cc} 4 - \lambda & -3\\ 8 & -6 - \lambda\end{array}\right| 
+    = (4 - \lambda)(-6 - \lambda) - (-3)(8) = 0 \\\\
+    \hspace*{108pt} = -24 - 4\lambda + 6\lambda + \lambda^2 + 24 = 0 \\\\
+    \hspace*{108pt} = \lambda^2 + 2\lambda = 0 \\\\
+    \hspace*{108pt} \Rightarrow \lambda_1 = 0, \lambda_2 = -2$
+
+    \subsubsection*{Eigenvalue \#1}
+    $\mathbf{\lambda_1 = \phantom{-}0}: 
+    \left[\begin{array}{cc} 4 - \lambda_1 & -3\\ 8 & -6 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 4 & -3\\ 8 & -6 \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.2cm}\begin{array}{rr} 4v_1 - 3v_2 &=0 \\ 8v_1 - 6v_2 &=0 \end{array} 
+     \longrightarrow \quad 4v_1=3v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 3 \\ 4 \end{array}\right]$
+
+    \subsubsection*{Eigenvalue \#2}
+    $\mathbf{\lambda_2 = -2}: 
+    \left[\begin{array}{cc} 4 - \lambda_2 & -3\\ 8 & -6 - \lambda_2\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 6 & -3\\ 8 & -4 \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.2cm}\begin{array}{rr} 6v_1 - 3v_2 &=0 \\ 8v_1 - 4v_2 &=0 \end{array} 
+    \longrightarrow \quad 2v_1=v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} 1 \\ 2 \end{array}\right]$
+
+    \vspace{6cm}
+
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}e^{2t} + c_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}e^{\frac{1}{2}t}$
+    \\\\
+    If we take the limit as $t$ approaches infinity, we can notice both terms head to infinity, but notice that the dominant term is the one with $\lambda_1 = 2$, \\ so all trajectories will be parellel to the line $y = x$ \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1b.pdf}
+    \end{figure}
+    \vspace{12cm}
+
+
+\item[c)] $\mathbf{x'} = \begin{pmatrix} 3 & -2 \\ 4 & -1 \end{pmatrix} \mathbf{x}$\\
+    $\left| \begin{array}{cc} 3 - \lambda & -2\\ 4 & -1 - \lambda\end{array}\right| 
+    = (3 - \lambda)(-1 - \lambda) - (-2)(4) = 0 \\\\
+    \hspace*{95pt} = -3 - 3\lambda + \lambda + \lambda^2 + 8 = 0 \\\\
+    \hspace*{95pt} = \lambda^2 - 2\lambda + 5 = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = 1+2i, \lambda_2 = 1-2i$
+
+    \subsubsection*{Eigenvalue \#1}
+    $\mathbf{\lambda_1 = 1+2i}: 
+    \left[\begin{array}{cc} 3 - \lambda_1 & -2\\ 4 & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{cc} 2-2i& -2\\ 4 & -2-2i \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.2cm}\begin{array}{rr} (2-2i)v_1 - 2v_2 &=0 \\ 4v_1 - (2+2i)v_2 &=0 \end{array} 
+     \longrightarrow \quad v_2=(1-i)v_1 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1-i \end{array}\right]$
+
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1-i \end{pmatrix}e^{(1+2i)t}$ \\
+    This just looks bad and its hard to interpret, so let's use Euler's formula to rewrite it in a better way: \\
+    $\begin{pmatrix} 1 \\ 1-i \end{pmatrix}e^{(1+2i)t} = \begin{pmatrix} 1 \\ 1-i \end{pmatrix}e^{t}e^{2it}
+    = \begin{pmatrix} 1 \\ 1-i \end{pmatrix}e^{t}(\cos(2t) + i\sin(2t)) \\\\
+    = e^{t}\left[\begin{pmatrix} \cos(2t)+i\sin(2t) \\ (1-i)(\cos(2t)+i\sin(2t)) \end{pmatrix}\right] \\
+    = e^{t}\left[\begin{pmatrix} \cos(2t) \\ \cos(2t) + \sin(2t) \end{pmatrix} + i\begin{pmatrix} \sin(2t) \\ \sin(2t) - \cos(2t) \end{pmatrix}\right] \\
+    = c_1e^{t}\left[\begin{pmatrix} \cos(2t) \\ \cos(2t) + \sin(2t) \end{pmatrix}\right] + c_2e^{t}\left[\begin{pmatrix} \sin(2t) \\ \sin(2t) - \cos(2t) \end{pmatrix}\right] \\
+    = c_1e^t \left[\begin{pmatrix} 1 \\ 1 \end{pmatrix} \cos 2t - \begin{pmatrix} 0 \\ -1 \end{pmatrix} \sin 2t \right] + c_2e^t \left[ \begin{pmatrix} 0 \\ -1 \end{pmatrix} \cos 2t + \begin{pmatrix} 1 \\ 1 \end{pmatrix} \sin 2t\right]$
+    \\\\\\
+    Notice that the vectors in front of the sins and cosines are components of the eigenvector that we started with:
+    
+    $$\mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1-i \end{array}\right] =\left[\begin{array}{cc} 1 \\ 1 \end{array}\right] + i\left[\begin{array}{cc} 0 \\ -1 \end{array}\right]$$
+    
+    This is a spiral source, so all trajectories will spiral outwards from the origin.
+    \\\\
+    Since going through all of that work with complex eigenvalues, I wonder if we could build a potential shortcut?
+    If $\lambda = \mathbf{a} + \mathbf{b}i$ is an eigenvalue of $A$ with eigenvector $\mathbf{v} = \mathbf{c} + i\mathbf{d}$, then we maybe can write the solution as 
+    $$\mathbf{x}(t) = e^{\mathbf{a}t}(\mathbf{c}\cos(\mathbf{b}t) - \mathbf{d}\sin(\mathbf{b}t)) + e^{\mathbf{a}t}(\mathbf{d}\sin(\mathbf{b}t) + \mathbf{c}\cos(\mathbf{b}t))$$
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1c.pdf}
+    \end{figure}
+    \vspace{12cm}
+
+
+\item[d)] $\mathbf{x'} = \begin{pmatrix} 2 & -\frac{5}{2} \\ \frac{9}{5} & -1 \end{pmatrix} \mathbf{x}$\\
+    $\left| \begin{array}{cc} 2 - \lambda & -\frac{5}{2}\\ \frac{9}{5} & -1 - \lambda\end{array}\right| 
+    = (2 - \lambda)(-1 - \lambda) - (-\frac{5}{2})(\frac{9}{5}) = 0 \\\\
+    \hspace*{95pt} = -2 - 2\lambda + \lambda + \lambda^2 + \frac{9}{2} = 0 \\\\
+    \hspace*{95pt} = \lambda^2 - \lambda + \frac{5}{2} = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = \frac{1}{2}+\frac{3}{2}i, \lambda_2 = \frac{1}{2}-\frac{3}{2}i$
+
+    \subsubsection*{Eigenvalue \#1}
+    $\mathbf{\lambda_1 = \dfrac{1}{2}+\dfrac{3}{2}i}: 
+    \left[\begin{array}{cc} 2 - \lambda_1 & -\frac{5}{2}\\ \frac{9}{5} & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{cc} \frac{3}{2}-\frac{3}{2}i& -\frac{5}{2}\\ \frac{9}{5} & -\frac{3}{2}-\frac{3}{2}i \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.2cm}\begin{array}{rr} (\frac{3}{2}-\frac{3}{2}i)v_1 - \frac{5}{2}v_2 &=0 \\ \frac{9}{5}v_1 - (-\frac{3}{2}+\frac{3}{2}i)v_2 &=0 \end{array} 
+     \rightarrow \quad (3-3i)v_1=5v_2 \quad \rightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 5 \\ 3-3i \end{array}\right]$
+
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 5 \\ 3-3i \end{pmatrix}e^{(\frac{1}{2}+\frac{3}{2}i)t}$ \\
+    This just looks bad and its hard to interpret, so let's use Euler's formula to rewrite it in a better way: \\
+    $\begin{pmatrix} 5 \\ 3-3i \end{pmatrix}e^{(\frac{1}{2}+\frac{3}{2}i)t} = \begin{pmatrix} 5 \\ 3-3i \end{pmatrix}e^{\frac{1}{2}t}e^{\frac{3}{2}it}
+    = \begin{pmatrix} 5 \\ 3-3i \end{pmatrix}e^{t}(\cos(\frac{3}{2}t) + i\sin(\frac{3}{2}t)) \\\\
+    = e^{t}\left[\begin{pmatrix} 5(\cos(\frac{3}{2}t)+i\sin(\frac{3}{2}t)) \\ (3-3i)(\cos(\frac{3}{2}t)+i\sin(\frac{3}{2}t)) \end{pmatrix}\right] \\
+    = e^{t}\left[\begin{pmatrix} 5\cos(\frac{3}{2}t) \\ 3\cos(\frac{3}{2}t) + 3\sin(\frac{3}{2}t) \end{pmatrix} + i\begin{pmatrix} 5\sin(\frac{3}{2}t) \\ 3\sin(\frac{3}{2}t) - 3\cos(\frac{3}{2}t) \end{pmatrix}\right] \\
+    = c_1e^{t}\left[\begin{pmatrix} 5\cos(\frac{3}{2}t) \\ 3\cos(\frac{3}{2}t) + 3\sin(\frac{3}{2}t) \end{pmatrix}\right] + c_2e^{t}\left[\begin{pmatrix} 5\sin(\frac{3}{2}t) \\ 3\sin(\frac{3}{2}t) - 3\cos(\frac{3}{2}t) \end{pmatrix}\right] \\
+    = c_1e^t \left[\begin{pmatrix} 5 \\ 3 \end{pmatrix} \cos(\frac{3}{2}t) - \begin{pmatrix} 0 \\ -3 \end{pmatrix} \sin(\frac{3}{2}t) \right] + c_2e^t \left[ \begin{pmatrix} 0 \\ -3 \end{pmatrix} \cos(\frac{3}{2}t) + \begin{pmatrix} 5 \\ 3 \end{pmatrix} \sin(\frac{3}{2}t)\right]$
+    \\\\\\
+    Notice that the vectors in front of the sins and cosines are components of the eigenvector that we started with:
+    
+    $$\mathbf{v}_1 =\left[\begin{array}{cc} 5 \\ 3-3i \end{array}\right] =\left[\begin{array}{cc} 5 \\ 3 \end{array}\right] + i\left[\begin{array}{cc} 0 \\ -3 \end{array}\right]$$
+    
+    This is a spiral source, so all trajectories will spiral outwards from the origin.
+    \\\\
+    Notice that with another example, our hypothesized shortcut still works! This is pretty cool, so maybe we can just use this formula for any complex eigenvalues we get in the future and save ourselves a lot of time!
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1d.pdf}
+    \end{figure}
 \end{enumerate}
 
 \section*{Question 2:}
@@ -140,4 +253,4 @@
     \item[c)]
 \end{enumerate}
 
-\end{document}
+\end{document}d
