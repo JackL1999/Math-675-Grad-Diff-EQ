@@ -258,41 +258,57 @@ $\hspace*{115pt} \text{So our eigenvalues are: } \lambda_1 = 4, \lambda_2 = 1, \
 
 \vspace{10cm}
 \subsubsection*{Eigenvalue \#1}
-$\mathbf{\lambda_1 = \phantom{-}3}: 
-      \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]
-    = \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]$\\ 
+$\mathbf{\lambda_1 = \phantom{-}4}: 
+      \left[ \begin{array}{ccc} 1 - \lambda_1 & 1 & 2\\1 & 2 - \lambda_1 & 1 \\ 2 & 1 & 1 - \lambda_1\end{array}\right]
+    = \left[ \begin{array}{ccc} -3 & 1 & 2\\1 & -2 & 1 \\ 2 & 1 & -3\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & -1\\0 & 1 & -1 \\ 0 & 0 & 0\end{array}\right]$\\ 
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= -c \\ b &= c \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_1 = \left[ \begin{array}{c} 1\\ 2\\ 3\end{array}\right]$
+$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= c \\ b &= c \\ c &= c \end{array}\right.$
+  so our eigenvalue is  $\mathbf{u}_1 = \left[ \begin{array}{c} 1\\ 1\\ 1\end{array}\right]$
 
 \subsubsection*{Eigenvalue \#2}
 $\mathbf{\lambda_2 = \phantom{-}1}: 
-      \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]  
-    = \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]   
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]$\\ 
+    \left[ \begin{array}{ccc} 1 - \lambda_2 & 1 & 2\\1 & 2 - \lambda_2 & 1 \\ 2 & 1 & 1 - \lambda_2\end{array}\right]
+    = \left[ \begin{array}{ccc} 0 & 1 & 2\\1 & 1 & 1 \\ 2 & 1 & 0\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & -1\\0 & 1 & 2 \\ 0 & 0 & 0\end{array}\right]$\\ 
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= 0 \\ b &= -c \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_2 = \left[ \begin{array}{c} 1\\ 2\\ 3\end{array}\right]$
+$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= c \\ b &= -2c \\ c &= c \end{array}\right.$
+  so our eigenvalue is  $\mathbf{u}_2 = \left[ \begin{array}{c} 1\\ -2\\ 1\end{array}\right]$
 
 \subsubsection*{Eigenvalue \#3}
-$\mathbf{\lambda_3 = \phantom{-}0}: 
-      \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]    
-    = \left[ \begin{array}{ccc} 1 & 2 & 3\\ & 5 & 6 \\ 7 & 8 & 9\end{array}\right]
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{array}\right]$\\ 
+$\mathbf{\lambda_3 = -1}: 
+    \left[ \begin{array}{ccc} 1 - \lambda_3 & 1 & 2\\1 & 2 - \lambda_3 & 1 \\ 2 & 1 & 1 - \lambda_3\end{array}\right]
+    = \left[ \begin{array}{ccc} 2 & 1 & 2\\1 & 3 & 1 \\ 2 & 1 & 2\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & 1\\0 & 1 & 0 \\ 0 & 0 & 0\end{array}\right]$\\ 
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= -c \\ b &= c \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_3 = \left[ \begin{array}{c} 1\\ 2\\ 3\end{array}\right]$\\
+$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= -c \\ b &= 0 \\ c &= c \end{array}\right.$
+  so our eigenvalue is  $\mathbf{u}_3 = \left[ \begin{array}{c} -1\\ 0\\ 1\end{array}\right]$\\
 
+\noindent
+Thus, the general solution to our system is 
+$$\mathbf{x}(t) = c_1e^{4t}\left[ \begin{array}{c} 1\\ 1\\ 1\end{array}\right] + c_2e^{t}\left[ \begin{array}{c} 1\\ -2\\ 1\end{array}\right] + c_3e^{-t}\left[ \begin{array}{c} -1\\ 0\\ 1\end{array}\right]$$
 
+\vspace{10cm}
 
 \section*{Question 3:}
+Consider the equation $ay'' + by' + cy = 0$ with $a, b, c$ are constants and $a \neq 0$. \\
+The general solution depends on the roots of the characteristic equation $ar^2+br+c$
 \begin{enumerate}
-    \item[a)]
-    \item[b)]
+    \item[a)] Given $x_1 = y, x_2 = y'$, we can then also say that $x_1' = y' = x_2$ and $x_2' = y''$ \\
+            so we can rewrite our original equation as $ax_2' + bx_2 + cx_1 = 0$ \\
+            Solving for the derivative we obtain $x_2' = -\dfrac{b}{a}x_2 - \dfrac{c}{a}x_1$ with $x_1'=x_2$ \\
+            Thus, we can write our system as $\mathbf{x'} = \begin{pmatrix} 0 & 1 \\ -\frac{c}{a} & -\frac{b}{a} \end{pmatrix}\mathbf{x}$ \\
+
+    \item[b)] Now let's find the eigenvalues of this system: \\
+            $\left| \begin{array}{cc} -\lambda & 1 \\ -\frac{c}{a} & -\frac{b}{a} - \lambda\end{array}\right| 
+            = (-\lambda)(-\dfrac{b}{a} - \lambda) + \dfrac{c}{a} = 0 \\\\
+            \hspace*{95pt} = \lambda^2 + \dfrac{b}{a}\lambda + \dfrac{c}{a} = a\lambda^2 +b\lambda + c = 0$\\
+            Notice that this is the same characteristic equation as our original second order ODE, so the eigenvalues are just the roots of the characteristic equation. \\
 \end{enumerate}
 
 \section*{Question 4:}
+Consider the system:
+$$\mathbf{x'} = \begin{pmatrix} -1 & -1 \\ -\alpha & -1 \end{pmatrix} \mathbf{x}$$
 \begin{enumerate}
     \item[a)]
     \item[b)]
