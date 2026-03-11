@@ -306,13 +306,78 @@ The general solution depends on the roots of the characteristic equation $ar^2+b
             Notice that this is the same characteristic equation as our original second order ODE, so the eigenvalues are just the roots of the characteristic equation. \\
 \end{enumerate}
 
+\vspace{20cm
+}
 \section*{Question 4:}
 Consider the system:
 $$\mathbf{x'} = \begin{pmatrix} -1 & -1 \\ -\alpha & -1 \end{pmatrix} \mathbf{x}$$
 \begin{enumerate}
-    \item[a)]
-    \item[b)]
-    \item[c)]
+    \item[a)] Solve the system for $\alpha = 0.5$ What are the eigenvalues? Classify the equilibrium at the origin. \\
+    $\left| \begin{array}{cc} -1 - \lambda & -1\\ -0.5 & -1 - \lambda\end{array}\right| 
+    = \left(-1 - \lambda\right)^2 - (-1)(-0.5)= 0 \\\\
+    \hspace*{95pt} = 1 + 2\lambda + \lambda^2 -0.5 = 0 \\\\
+    \hspace*{95pt} = \lambda^2 + 2\lambda + 0.5 = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = -1 + \frac{\sqrt{2}}{2}, \lambda_2 = -1 - \frac{\sqrt{2}}{2}$
+
+    \subsubsection*{Eigenvalue \#1}
+    $\mathbf{\lambda_1 = -1 + \frac{\sqrt{2}}{2}}: 
+    \left[\begin{array}{cc} -1 - \lambda_1 & -1\\ -0.5 & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} -\frac{\sqrt{2}}{2}& -1\\ -0.5 & -\frac{\sqrt{2}}{2} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.8cm}\begin{array}{rr} -\frac{1}{\sqrt{2}}v_1 - 1v_2 &=0 \\ -0.5v_1 - \frac{1}{\sqrt{2}}v_2 &=0 \end{array} 
+     \longrightarrow \quad v_1=-\sqrt{2}v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} -\sqrt{2} \\ 1 \end{array}\right]$
+
+    \subsubsection*{Eigenvalue \#2}
+    $\mathbf{\lambda_2 = -1 - \frac{\sqrt{2}}{2}}: 
+    \left[\begin{array}{cc} -1 - \lambda_2 & -1\\ -0.5 & -1 - \lambda_2\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} \frac{\sqrt{2}}{2} & -1\\ -0.5 & \frac{\sqrt{2}}{2} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.8cm}\begin{array}{rr} \frac{1}{\sqrt{2}}v_1 - 1v_2 &=0 \\ -0.5v_1 + \frac{1}{\sqrt{2}}v_2 &=0 \end{array} 
+     \longrightarrow \quad v_1=\sqrt{2}v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} \sqrt{2} \\ 1 \end{array}\right]$
+
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} -\sqrt{2} \\ 1 \end{pmatrix}e^{(-1 + \frac{\sqrt{2}}{2})t} + c_2\begin{pmatrix} \sqrt{2} \\ 1 \end{pmatrix}e^{(-1 - \frac{\sqrt{2}}{2})t}$ \\
+    The equlibrium at the origin is a stable sink node, since both eigenvalues are negative and real. \\
+    
+    \vspace{8cm}
+    \item[b)] Repeat for $\alpha = 2$ \\
+    $\left| \begin{array}{cc} -1 - \lambda & -1\\ -2 & -1 - \lambda\end{array}\right| 
+    = \left(-1 - \lambda\right)^2 - (-1)(-2)= 0 \\\\
+    \hspace*{95pt} = 1 + 2\lambda + \lambda^2 -2 = 0 \\\\
+    \hspace*{95pt} = \lambda^2 + 2\lambda -1 = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = -1 + \sqrt{2}, \lambda_2 = -1 - \sqrt{2}$
+
+    \subsubsection*{Eigenvalue \#1}
+    $\mathbf{\lambda_1 = -1 + \sqrt{2}}: 
+    \left[\begin{array}{cc} -1 - \lambda_1 & -1\\ -2 & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} -\sqrt{2}& -1\\ -2 & -\sqrt{2} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.8cm}\begin{array}{rr} -\sqrt{2}v_1 - 1v_2 &=0 \\ -2v_1 - \sqrt{2}v_2 &=0 \end{array} 
+     \longrightarrow \quad v_2=-\sqrt{2}v_1 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ -\sqrt{2} \end{array}\right]$
+
+    \subsubsection*{Eigenvalue \#2}
+    $\mathbf{\lambda_2 = -1 - \sqrt{2}}: 
+    \left[\begin{array}{cc} -1 - \lambda_2 & -1\\ -2 & -1 - \lambda_2\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} \sqrt{2} & -1\\ -2 & \sqrt{2} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+
+    $\hspace*{2.8cm}\begin{array}{rr} \sqrt{2}v_1 - 1v_2 &=0 \\ -2v_1 + \sqrt{2}v_2 &=0 \end{array} 
+     \longrightarrow \quad v_2=\sqrt{2}v_1 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ \sqrt{2} \end{array}\right]$
+
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ -\sqrt{2} \end{pmatrix}e^{(-1 + \sqrt{2})t} + c_2\begin{pmatrix} 1 \\ \sqrt{2} \end{pmatrix}e^{(-1 - \sqrt{2})t}$ \\
+    The equlibrium at the origin is a unstable saddle, since we have one positive and one negative real eigenvalue. \\
+    
+    \vspace{12cm}
+
+    \item[c)] Find the eigenvalues in terms of $\alpha$ and determine the value of $\alpha$ between $0.5$ and $2$ where the transition from one type of behavior to the other occurs. \\
+    \item[] $\left| \begin{array}{cc} -1 - \lambda & -1\\ -\alpha & -1 - \lambda\end{array}\right| 
+    = \left(-1 - \lambda\right)^2 - \alpha= 0 \\\\
+    \hspace*{95pt} \rightarrow \left(-1 - \lambda\right)^2 = \alpha \\\\
+    \hspace*{95pt} \rightarrow -1 - \lambda = \pm \sqrt{\alpha} \\\\
+    \hspace*{95pt} \rightarrow -1 - \lambda = \pm \sqrt{\alpha} \\\\
+    \hspace*{95pt} \rightarrow \lambda_1 = -1 + \sqrt{\alpha}, \lambda_2 = -1 - \sqrt{\alpha}$ \\\\
+    We can see that $\lambda_1 > \lambda_2$ for all $\alpha > 0$. Notice that for all values of $\alpha$, $\lambda_2$ is always negitive, but the same cant be said for $\lambda_1$. 
+    So the transition from stable to unstable behavior occurs when $\lambda_1$ goes from negative to positive, which happens at $\alpha = 1$. 
+    Any values of $\alpha$ between $0$ and $1$ will give us both negitive eigenvalues, meaning the origin is a stable sink node,
+    and any values of $\alpha$ between $1$ and $2$ will give us an unstable saddle since we will obtain one positive and one negative eigenvalue. \\
 \end{enumerate}
 
-\end{document}d\4
+\end{document}
