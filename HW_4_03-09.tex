@@ -93,126 +93,147 @@
 
 \section*{Question 1:}
 \begin{enumerate}
-    \item[a)] $\mathbf{x'} = \begin{pmatrix} \frac{5}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{5}{4} \end{pmatrix} \mathbf{x}$ \\
-    $\left| \begin{array}{cc} \frac{5}{4} - \lambda & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda\end{array}\right| 
-    = \left(\frac{5}{4} - \lambda\right)^2 - \left(\frac{3}{4}\right)^2 = 0 \\\\
-    \hspace*{95pt} = \left(\frac{5}{4} - \lambda + \frac{3}{4}\right)\left(\frac{5}{4} - \lambda - \frac{3}{4}\right) = 0 \\\\
-    \hspace*{95pt} = \left(2 - \lambda\right)\left(\frac{1}{2} - \lambda\right) = 0 \\\\
-    \hspace*{95pt} \Rightarrow \lambda_1 = 2, \lambda_2 = \frac{1}{2}$
+    \item[a)] $\mathbf{x'} = \begin{pmatrix} 3 & -4 \\ 1 & -1 \end{pmatrix} \mathbf{x}$ \\
+    $\left| \begin{array}{cc} 3 - \lambda & -4\\ 1 & -1 - \lambda\end{array}\right| 
+    = (3 - \lambda)(-1 - \lambda) - (-4)(1) = 0 \\\\
+    \hspace*{95pt} = -3 - 3\lambda + \lambda + \lambda^2 + 4 = 0 \\\\
+    \hspace*{95pt} = \lambda^2 - 2\lambda + 1 = 0 \\\\
+    \hspace*{95pt} = (\lambda - 1)^2 = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = \lambda_2 = 1$
 
-    \subsubsection*{Eigenvalue \#1}
-    $\mathbf{\lambda_1 = \phantom{-}2}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_1 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_1\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} -\frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & -\frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \subsubsection*{Repeated Eigenvalue \#1 and \#2}
+    $\mathbf{\lambda_1 = \phantom{-}1}:$ Solve for $(A - \lambda I)\mathbf{v} = 0 \\
+    \hspace*{2cm}\left[\begin{array}{cc} 3 - \lambda_1 & -4\\ 1 & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 2& -4\\ 1 & -2 \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} -1v_1 + 1v_2 &=0 \\ 1v_1 - 1v_2 &=0 \end{array} 
-     \longrightarrow \quad v_1=v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1 \end{array}\right]$
+    $\hspace*{2cm}\begin{array}{rr} 2v_1 - 4v_2 &=0 \\ 1v_1 - 2v_2 &=0 \end{array} 
+     \longrightarrow \quad v_1=2v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 2 \\ 1 \end{array}\right]$ \\
 
-    \subsubsection*{Eigenvalue \#2}
-    $\mathbf{\lambda_2 = \phantom{-}\dfrac{1}{2}}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_2 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_2\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} \frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & \frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \hspace*{2cm}Solve for $ (A - \lambda I)\mathbf{w} = \mathbf{v}$ \\ 
+    $\hspace*{2cm}\left[\begin{array}{cc} 3 - \lambda_1 & -4\\ 1 & -1 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 2& -4\\ 1 & -2 \end{array}\right] \left[\begin{array}{cc} w_1 \\ w_2 \end{array}\right] = \left[\begin{array}{cc} 2 \\ 1 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} 1v_1 + 1v_2 &=0 \\ 1v_1 + 1v_2 &=0 \end{array} 
-    \longrightarrow \quad v_1=-v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} -1 \\ 1 \end{array}\right]$
-    
+    $\hspace*{2cm}\begin{array}{rr} 2w_1 - 4w_2 &=2 \\ 1w_1 - 2w_2 &=1 \end{array} 
+    \longrightarrow \quad w_1=1 + 2w_2 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} 1 \\ 0 \end{array}\right]$
+
+    So our general solution is $\mathbf{x}(t) = c_1e^{t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}+ c_2e^{t} \left[ t \begin{pmatrix} 2 \\ 1 \end{pmatrix} + \begin{pmatrix} 1 \\ 0 \end{pmatrix}\right]$
+
     \vspace{12cm}
     
-    \item[b)] $\mathbf{x'} = \begin{pmatrix} \frac{5}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{5}{4} \end{pmatrix} \mathbf{x}$ \\
-    $\left| \begin{array}{cc} \frac{5}{4} - \lambda & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda\end{array}\right| 
-    = \left(\frac{5}{4} - \lambda\right)^2 - \left(\frac{3}{4}\right)^2 = 0 \\\\
-    \hspace*{95pt} = \left(\frac{5}{4} - \lambda + \frac{3}{4}\right)\left(\frac{5}{4} - \lambda - \frac{3}{4}\right) = 0 \\\\
-    \hspace*{95pt} = \left(2 - \lambda\right)\left(\frac{1}{2} - \lambda\right) = 0 \\\\
-    \hspace*{95pt} \Rightarrow \lambda_1 = 2, \lambda_2 = \frac{1}{2}$
+    \item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -2 \\ 8 & -4 \end{pmatrix} \mathbf{x}$ \\
+    $\left| \begin{array}{cc} 4 - \lambda & -2\\ 8 & -4 - \lambda\end{array}\right| 
+    = (4 - \lambda)(-4 - \lambda) - (-2)(8) = 0 \\\\
+    \hspace*{95pt} = -16 - 4\lambda + 4\lambda + \lambda^2 + 16 = 0 \\\\
+    \hspace*{95pt} = \lambda^2 = 0 \\\\
+    \hspace*{95pt} \Rightarrow \lambda_1 = \lambda_2 = 0$
 
-    \subsubsection*{Eigenvalue \#1}
-    $\mathbf{\lambda_1 = \phantom{-}2}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_1 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_1\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} -\frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & -\frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \subsubsection*{Repeated Eigenvalue \#1 and \#2}
+    $\mathbf{\lambda_1 = \phantom{-}0}:$ Solve for $(A - \lambda I)\mathbf{v} = 0 \\
+    \hspace*{2cm}\left[\begin{array}{cc} 4 - \lambda_1 & -2\\ 8 & -4 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 4& -2\\ 8 & -4 \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} -1v_1 + 1v_2 &=0 \\ 1v_1 - 1v_2 &=0 \end{array} 
-     \longrightarrow \quad v_1=v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1 \end{array}\right]$
+    $\hspace*{2cm}\begin{array}{rr} 4v_1 - 2v_2 &=0 \\ 8v_1 - 4v_2 &=0 \end{array} 
+     \longrightarrow \quad v_2=2v_1 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 2 \end{array}\right]$ \\
 
-    \subsubsection*{Eigenvalue \#2}
-    $\mathbf{\lambda_2 = \phantom{-}\dfrac{1}{2}}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_2 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_2\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} \frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & \frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \hspace*{2cm}Solve for $ (A - \lambda I)\mathbf{w} = \mathbf{v}$ \\ 
+    $\hspace*{2cm}\left[\begin{array}{cc} 4 - \lambda_1 & -2\\ 8 & -4 - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} 4& -2\\ 8 & -4 \end{array}\right] \left[\begin{array}{cc} w_1 \\ w_2 \end{array}\right] = \left[\begin{array}{cc} 1 \\ 2 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} 1v_1 + 1v_2 &=0 \\ 1v_1 + 1v_2 &=0 \end{array} 
-    \longrightarrow \quad v_1=-v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} -1 \\ 1 \end{array}\right]$
-    
+    $\hspace*{2cm}\begin{array}{rr} 4w_1 - 2w_2 &=1 \\ 8w_1 - 4w_2 &=2 \end{array} 
+    \longrightarrow \quad w_1=\dfrac{1}{4} + \dfrac{1}{2}w_2 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} \frac{1}{4} \\ 0 \end{array}\right]$
+
+    So our general solution is $\mathbf{x}(t) = c_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+ c_2\left[ t \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \begin{pmatrix} \frac{1}{4} \\ 0 \end{pmatrix}\right]$
+
     \vspace{12cm}
-    
-    \item[c)] $\mathbf{x'} = \begin{pmatrix} \frac{5}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{5}{4} \end{pmatrix} \mathbf{x}$ \\
-    $\left| \begin{array}{cc} \frac{5}{4} - \lambda & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda\end{array}\right| 
-    = \left(\frac{5}{4} - \lambda\right)^2 - \left(\frac{3}{4}\right)^2 = 0 \\\\
-    \hspace*{95pt} = \left(\frac{5}{4} - \lambda + \frac{3}{4}\right)\left(\frac{5}{4} - \lambda - \frac{3}{4}\right) = 0 \\\\
-    \hspace*{95pt} = \left(2 - \lambda\right)\left(\frac{1}{2} - \lambda\right) = 0 \\\\
-    \hspace*{95pt} \Rightarrow \lambda_1 = 2, \lambda_2 = \frac{1}{2}$
+    \renewcommand{\arraystretch}{1.3}
+    \item[c)] $\mathbf{x'} = \begin{pmatrix} -\frac{3}{2} & 1 \\ -\frac{1}{4} & -\frac{1}{2} \end{pmatrix} \mathbf{x}$ \\
+    $\left| \begin{array}{cc} -\frac{3}{2} - \lambda & 1\\ -\frac{1}{4} & -\frac{1}{2} - \lambda\end{array}\right| 
+    \rightarrow trace(A) = -\frac{3}{2} + (-\frac{1}{2}) = -2 \\\\
+    \hspace*{120pt} \rightarrow det(A) = (-\frac{3}{2})(-\frac{1}{2}) - (1)(-\frac{1}{4}) = \frac{3}{4} + \frac{1}{4} = 1 \\\\
+    \hspace*{120pt} \rightarrow \lambda^2 - trace(A)\lambda + det(A) = \lambda^2 + 2\lambda + 1 = 0 \\\\
+    \hspace*{120pt} \rightarrow (\lambda + 1)^2 = 0 \\\\
+    \hspace*{120pt} \Rightarrow \lambda_1 = \lambda_2 = -1$
 
-    \subsubsection*{Eigenvalue \#1}
-    $\mathbf{\lambda_1 = \phantom{-}2}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_1 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_1\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} -\frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & -\frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \subsubsection*{Repeated Eigenvalue \#1 and \#2}
+    $\mathbf{\lambda_1 = -1}:$ Solve for $(A - \lambda I)\mathbf{v} = 0 \\
+    \hspace*{2cm}\left[\begin{array}{cc} -\frac{3}{2} - \lambda_1 & 1\\ -\frac{1}{4} & -\frac{1}{2} - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} -\frac{1}{2}& 1\\ -\frac{1}{4} & \frac{1}{2} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} -1v_1 + 1v_2 &=0 \\ 1v_1 - 1v_2 &=0 \end{array} 
-     \longrightarrow \quad v_1=v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1 \end{array}\right]$
+    $\hspace*{2cm}\begin{array}{rr} -\frac{1}{2}v_1 + 1v_2 &=0 \\ -\frac{1}{4}v_1 + \frac{1}{2}v_2 &=0 \end{array} 
+     \longrightarrow \quad v_1=2v_2 \quad \longrightarrow \mathbf{v}_1 =\left[\begin{array}{cc} 2 \\ 1 \end{array}\right]$ \\
 
-    \subsubsection*{Eigenvalue \#2}
-    $\mathbf{\lambda_2 = \phantom{-}\dfrac{1}{2}}: 
-    \left[\begin{array}{cc} \frac{5}{4} - \lambda_2 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_2\end{array}\right]
-    \rightarrow \left[\begin{array}{rr} \frac{3}{4}& \frac{3}{4}\\ \frac{3}{4} & \frac{3}{4} \end{array}\right] \left[\begin{array}{cc} v_1 \\ v_2 \end{array}\right] = \left[\begin{array}{cc} 0 \\ 0 \end{array}\right]$
+    \hspace*{2cm}Solve for $ (A - \lambda I)\mathbf{w} = \mathbf{v} \\ 
+    \hspace*{2cm}\left[\begin{array}{cc} -\frac{3}{2} - \lambda_1 & 1\\ -\frac{1}{4} & -\frac{1}{2} - \lambda_1\end{array}\right]
+    \rightarrow \left[\begin{array}{rr} -\frac{1}{2}& 1\\ -\frac{1}{4} & \frac{1}{2} \end{array}\right] \left[\begin{array}{cc} w_1 \\ w_2 \end{array}\right] = \left[\begin{array}{cc} 2 \\ 1 \end{array}\right]$
 
-    $\hspace*{2cm}\begin{array}{rr} 1v_1 + 1v_2 &=0 \\ 1v_1 + 1v_2 &=0 \end{array} 
-    \longrightarrow \quad v_1=-v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} -1 \\ 1 \end{array}\right]$
+    $\hspace*{2cm}\begin{array}{rr} -\frac{1}{2}w_1 + 1w_2 & = 2 \\ -\frac{1}{4}w_1 + \frac{1}{2}w_2 & = 1 \end{array} 
+     \longrightarrow \quad w_1=2w_2-4 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} -4 \\ 0 \end{array}\right]$ \\
+
+    So our general solution is $\mathbf{x}(t) = c_1e^{-t}\begin{pmatrix} 2 \\ 1 \end{pmatrix}+ c_2e^{-t}\left[ t \begin{pmatrix} 2 \\ 1 \end{pmatrix} + \begin{pmatrix} -4 \\ 0 \end{pmatrix}\right]$
+
 \end{enumerate}
 
 \vspace{10cm}
 \section*{Question 2:}
 Find the general solution of the 3D System:
 \renewcommand{\arraystretch}{1}
-$$\mathbf{x'}(t) = \begin{pmatrix} 1 & 1 & 2 \\ 1 & 2 & 1 \\ 2 & 1 & 1 \end{pmatrix} \mathbf{x}(t)$$
+$$\mathbf{x'}(t) = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 1 & -1 \\ 0 & -1 & 1 \end{pmatrix} \mathbf{x}(t)$$
 
-$\left| \begin{array}{ccc} 1-\lambda & 1 & 2\\ 1 & 2-\lambda & 1 \\ 2 & 1 & 1-\lambda\end{array}\right|
-= (1-\lambda)\left| \begin{array}{cc} 2-\lambda & 1\\ 1 & 1-\lambda\end{array}\right| - 1\left| \begin{array}{cc} 1 & 1 \\ 2 & 1-\lambda\end{array}\right| +2\left| \begin{array}{cc} 1 & 2-\lambda\\ 2 & 1\end{array}\right|$ \\
-$\hspace*{115pt} = (1-\lambda)\left[(2-\lambda)(1-\lambda) - 1\right] - 1[(1-\lambda) - 2] + 2[1-2(2-\lambda)]=0$ \\\\
-$\hspace*{115pt} = (1-\lambda)(1-3\lambda + \lambda^2) + (1+\lambda) + (-6+4\lambda)=0$ \\\\
-$\hspace*{115pt} = 1 - 3\lambda + \lambda^2 - \lambda + 3\lambda^2 -\lambda^3 -5 + 5\lambda = 0$ \\\\
-$\hspace*{115pt} = -\lambda^3 + 4\lambda^2 + \lambda - 4 = 0$ \\\\
-$\hspace*{115pt} = \lambda^3 - 4\lambda^2 - \lambda + 4 = 0$ \\\\
-$\hspace*{115pt} = (\lambda^3 - 4\lambda^2) - (\lambda - 4) = 0$ \\\\
-$\hspace*{115pt} = \lambda^2(\lambda - 4) - (\lambda - 4) = 0$ \\\\
-$\hspace*{115pt} = (\lambda^2 - 1)(\lambda - 4) = 0$ \\\\
-$\hspace*{115pt} \text{So our eigenvalues are: } \lambda_1 = 4, \lambda_2 = 1, \lambda_3 = -1$\\
+$\left| \begin{array}{ccc} 1-\lambda & 1 & 1\\ 2 & 1-\lambda & -1 \\ 0 & -1 & 1-\lambda\end{array}\right|
+= (1-\lambda)\left| \begin{array}{cc} 1-\lambda & -1\\ -1 & 1-\lambda\end{array}\right| 
+          - 1\left| \begin{array}{cc} 2 & -1 \\ 0 & 1-\lambda\end{array}\right| 
+          + 1\left| \begin{array}{cc} 2 & 1-\lambda\\ 0 & -1\end{array}\right|$ \\
+$\hspace*{115pt} = (1-\lambda)\left[(1-\lambda)^2 - 1\right] - 1[2(1-\lambda)] + 1[-2]=0$ \\\\
+$\hspace*{115pt} = (1-\lambda)(-2\lambda + \lambda^2) + (-2+2\lambda) + (-2)=0$ \\\\
+$\hspace*{115pt} = -2\lambda + \lambda^2 + 2\lambda^2 - \lambda^3 - 2 + 2\lambda - 2$ \\\\
+$\hspace*{115pt} = -\lambda^3 + 3\lambda^2 - 4 = 0$ \\\\
+$\hspace*{115pt} = \lambda^3 - 3\lambda^2 + 4 = 0$ \\\\
+Now this is where the tricky bit is, factoring a cubic can be long and tedious
+so lets use polynomial long division, or better yet, synthetic division. 
+Notice that plugging in $\lambda = -1$ gives us $0$, so we know that $\lambda + 1$ is a factor of our cubic.
+\[\begin{array}{r|rrrr}
+-1 &  1 &  -3 &  0 &  4 \\
+  &     &   1 &  4 & -4 \\
+\hline
+ &  1 &  -4 &  4 & \multicolumn{1}{|c|}{0} \\
+\cline{5-5}
+\end{array}\]
+This now tells us that our cubic can be factored into $-(\lambda+1)(\lambda^2-4\lambda+4)$\\ 
+Now we have to factor a quadratic, which is super easy
+\[-(\lambda+1)(\lambda^2-4\lambda+4)=(\lambda+1)(\lambda-2)^2=0\]
+Thus, the eigenvalues for $A$ are: $\lambda_1=-1, \lambda_2=\lambda_3=2$
+
 
 \vspace{10cm}
 \subsubsection*{Eigenvalue \#1}
-$\mathbf{\lambda_1 = \phantom{-}4}: 
-      \left[ \begin{array}{ccc} 1 - \lambda_1 & 1 & 2\\1 & 2 - \lambda_1 & 1 \\ 2 & 1 & 1 - \lambda_1\end{array}\right]
-    = \left[ \begin{array}{ccc} -3 & 1 & 2\\1 & -2 & 1 \\ 2 & 1 & -3\end{array}\right]
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & -1\\0 & 1 & -1 \\ 0 & 0 & 0\end{array}\right]$\\ 
+$\mathbf{\lambda_1 = -1}: $ Solve for $(A - \lambda I)\mathbf{v} = 0 \\
+      \hspace*{2cm}\left[ \begin{array}{ccc} 1-\lambda_1 & 1 & 1\\ 2 & 1-\lambda_1 & -1 \\ 0 & -1 & 1-\lambda_1\end{array}\right]
+    = \left[ \begin{array}{ccc|c} 2 & 1 & 1 & 0\\2 & 2 & -1 & 0 \\ 0 & -1 & 2 & 0\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc|c} 1 & 0 & \frac{3}{2} & 0\\0 & 1 & -2 & 0\\ 0 & 0 & 0 & 0\end{array}\right]$\\ 
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= c \\ b &= c \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_1 = \left[ \begin{array}{c} 1\\ 1\\ 1\end{array}\right]$
+$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= \frac{3}{2}c \\ b &= -c \\ c &= c \end{array}\right.$
+  so our eigenvalue is $\mathbf{v}_1 = \left[ \begin{array}{c} 3\\ -4\\ 2\end{array}\right]$
 
-\subsubsection*{Eigenvalue \#2}
-$\mathbf{\lambda_2 = \phantom{-}1}: 
-    \left[ \begin{array}{ccc} 1 - \lambda_2 & 1 & 2\\1 & 2 - \lambda_2 & 1 \\ 2 & 1 & 1 - \lambda_2\end{array}\right]
-    = \left[ \begin{array}{ccc} 0 & 1 & 2\\1 & 1 & 1 \\ 2 & 1 & 0\end{array}\right]
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & -1\\0 & 1 & 2 \\ 0 & 0 & 0\end{array}\right]$\\ 
+\subsubsection*{Repeated Eigenvalue \#2 and \#3}
+$\mathbf{\lambda_2 = \phantom{-}2}:$ Solve for $(A - \lambda I)\mathbf{v} = 0 \\
+    \hspace*{2cm}\left[ \begin{array}{ccc} 1 - \lambda_2 & 1 & 2\\1 & 1 - \lambda_2 & 1 \\ 2 & 1 & 1 - \lambda_2\end{array}\right]
+    = \left[ \begin{array}{ccc|c} -1 & 1 & 1 & 0\\2 & -1 & -1 & 0 \\ 0 & -1 & -1 & 0\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc|c} 1 & 0 & 0 & 0\\0 & 1 & 1 & 0\\ 0 & 0 & 0 & 0\end{array}\right]$\\ 
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= c \\ b &= -2c \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_2 = \left[ \begin{array}{c} 1\\ -2\\ 1\end{array}\right]$
+$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= 0 \\ b &= -c \\ c &= c \end{array}\right.$
+  so our eigenvalue is  $\mathbf{v}_2 = \left[ \begin{array}{c} 0\\ -1\\ 1\end{array}\right]$\\
 
-\subsubsection*{Eigenvalue \#3}
-$\mathbf{\lambda_3 = -1}: 
-    \left[ \begin{array}{ccc} 1 - \lambda_3 & 1 & 2\\1 & 2 - \lambda_3 & 1 \\ 2 & 1 & 1 - \lambda_3\end{array}\right]
-    = \left[ \begin{array}{ccc} 2 & 1 & 2\\1 & 3 & 1 \\ 2 & 1 & 2\end{array}\right]
-    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc} 1 & 0 & 1\\0 & 1 & 0 \\ 0 & 0 & 0\end{array}\right]$\\ 
+\noindent
+\hspace*{2cm}Solve for $ (A - \lambda I)\mathbf{w} = \mathbf{v}$ \\ 
+    $\hspace*{2cm}\left[ \begin{array}{ccc} 1 - \lambda_2 & 1 & 2\\1 & 1 - \lambda_2 & 1 \\ 2 & 1 & 1 - \lambda_2\end{array}\right]
+    = \left[ \begin{array}{ccc|c} -1 & 1 & 1 & 0\\2 & -1 & -1 & -1 \\ 0 & -1 & -1 & 1\end{array}\right]
+    \xrightarrow{\text{RREF}} \left[ \begin{array}{ccc|c} 1 & 0 & 0 & -1\\0 & 1 & 1 & -1\\ 0 & 0 & 0 & 0\end{array}\right]$\\
 
-$\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= -c \\ b &= 0 \\ c &= c \end{array}\right.$
-  so our eigenvalue is  $\mathbf{u}_3 = \left[ \begin{array}{c} -1\\ 0\\ 1\end{array}\right]$\\
-
+$\hspace*{1.5cm}$ This gives us $\left\{\begin{array}{rl} w_1 &= -1 \\ w_2 &= -1 \\ w_3 &= 0 \end{array}\right.$
+  so our generalized eigenvalue is $\mathbf{w} = \left[ \begin{array}{c} -1\\ -1\\ 0\end{array}\right]$\\
+  
+\noindent
+So our general solution is $\mathbf{x}(t) = c_1e^{-t}\begin{pmatrix} 3 \\ -4 \\ 2 \end{pmatrix} + c_2e^{2t}\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} + c_3e^{2t}\left[ t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} + \begin{pmatrix} -1 \\ -1 \\ 0 \end{pmatrix}\right]$
 
 
 \end{document}
