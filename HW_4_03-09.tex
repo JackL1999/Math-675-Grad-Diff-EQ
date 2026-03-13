@@ -93,7 +93,8 @@
 
 \section*{Question 1:}
 \begin{enumerate}
-    \item[a)] $\mathbf{x'} = \begin{pmatrix} 3 & -4 \\ 1 & -1 \end{pmatrix} \mathbf{x}$ \\
+    \item[a)] $\mathbf{x'} = \begin{pmatrix} 3 & -4 \\ 1 & -1 \end{pmatrix} \mathbf{x}$
+    \subsection*{Finding the general Solution}
     $\left| \begin{array}{cc} 3 - \lambda & -4\\ 1 & -1 - \lambda\end{array}\right| 
     = (3 - \lambda)(-1 - \lambda) - (-4)(1) = 0 \\\\
     \hspace*{95pt} = -3 - 3\lambda + \lambda + \lambda^2 + 4 = 0 \\\\
@@ -116,11 +117,32 @@
     $\hspace*{2cm}\begin{array}{rr} 2w_1 - 4w_2 &=2 \\ 1w_1 - 2w_2 &=1 \end{array} 
     \longrightarrow \quad w_1=1 + 2w_2 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} 1 \\ 0 \end{array}\right]$
 
-    So our general solution is $\mathbf{x}(t) = c_1e^{t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}+ c_2e^{t} \left[ t \begin{pmatrix} 2 \\ 1 \end{pmatrix} + \begin{pmatrix} 1 \\ 0 \end{pmatrix}\right]$
-
+    So our general solution is $\mathbf{x}(t) = c_1e^{t} \begin{pmatrix} 2 \\ 1 \end{pmatrix}+ c_2e^{t} \left[ t \begin{pmatrix} 2 \\ 1 \end{pmatrix} + \begin{pmatrix} 1 \\ 0 \end{pmatrix}\right]$
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that $e^t$ approaches infinity in both of the terms.
+    But the $te^t$ term grows faster than $e^t$ term, so solutions will become parrellel to the lint $y=\frac{1}{2}x$ as $t \to \infty$.
+    $$\lim_{t \to \infty} \frac{c_1e^tv}{c_2e^t(tv+ w)}  = \lim_{t \to \infty} \frac{c_1v}{c_2(tv+w)} = 0$$
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = 3x-4y,\text{ giving us } y=\tfrac{3}{4}x &\\
+        &\text{Set } y'=0:\text{so } 0 = x-y, \text{ giving us } y=x &
+    \end{flalign*}
+    We still also have our initial eigenvalue direction of $y = \frac{1}{2}x$
+    \subsection*{Using technology to draw the phase portrait}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_4_Images/HW_4_Q1a.pdf}
+    \end{figure}
+    \begin{itemize}
+        \item The black dashed line is the eigendirection $y=\frac{1}{2}x$, \\ which is the direction that solutions will become parallel to as $t \to \infty$
+        \item The red line is the $x$-nullcline $y=\frac{3}{4}x$. Trajectories cross this line \\ vertically and above this line, $x'<0$, and below it, $x'>0$.
+        \item The green line is the $y$-nullcline $y=x$. Trajectories cross this line \\ horizontally and above this line, $y'<0$, and below it, $y'>0$.
+    \end{itemize}
     \vspace{12cm}
     
-    \item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -2 \\ 8 & -4 \end{pmatrix} \mathbf{x}$ \\
+    \item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -2 \\ 8 & -4 \end{pmatrix} \mathbf{x}$
+    \subsection*{Finding the general Solution}
     $\left| \begin{array}{cc} 4 - \lambda & -2\\ 8 & -4 - \lambda\end{array}\right| 
     = (4 - \lambda)(-4 - \lambda) - (-2)(8) = 0 \\\\
     \hspace*{95pt} = -16 - 4\lambda + 4\lambda + \lambda^2 + 16 = 0 \\\\
@@ -143,10 +165,35 @@
     \longrightarrow \quad w_1=\dfrac{1}{4} + \dfrac{1}{2}w_2 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} \frac{1}{4} \\ 0 \end{array}\right]$
 
     So our general solution is $\mathbf{x}(t) = c_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+ c_2\left[ t \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \begin{pmatrix} \frac{1}{4} \\ 0 \end{pmatrix}\right]$
-
+    
+    \vspace{10cm}
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that the single $c_2t$ term approaches infinity. \\
+    But the first term does not change at all, so solutions will become parrellel to the line $y=2x$ as $t \to \infty$.
+    $$\lim_{t \to \infty} \frac{c_1v}{c_2(tv + w)}  =  0$$
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = 4x-2y, \text{ giving us } y=2x &\\
+        &\text{Set } y'=0:\text{so } 0 = 8x-4y, \text{ giving us } y=2x &
+    \end{flalign*}
+    We still also have our initial eigenvalue direction of $y = 2x$
+    This means that instead of two nullclines, we only have one nullcline.
+    \subsection*{Using technology to draw the phase portrait}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_4_Images/HW_4_Q1b.pdf}
+    \end{figure}
+    \begin{itemize}
+        \item The black dashed line is the eigendirection $y=2x$, \\ which is the direction that solutions will become parallel to as $t \to \infty$
+        \item The green line is the $y$-nullcline $y=2x$. Trajectories do not cross this line. bove this line, $y' < 0$ and $x' < 0$, and below it, $y' > 0$ and $x' > 0$.
+    \end{itemize}
+    \vspace{12cm}
+    
     \vspace{12cm}
     \renewcommand{\arraystretch}{1.3}
-    \item[c)] $\mathbf{x'} = \begin{pmatrix} -\frac{3}{2} & 1 \\ -\frac{1}{4} & -\frac{1}{2} \end{pmatrix} \mathbf{x}$ \\
+    \item[c)] $\mathbf{x'} = \begin{pmatrix} -\frac{3}{2} & 1 \\ -\frac{1}{4} & -\frac{1}{2} \end{pmatrix} \mathbf{x}$
+    \subsection*{Finding the general Solution}
     $\left| \begin{array}{cc} -\frac{3}{2} - \lambda & 1\\ -\frac{1}{4} & -\frac{1}{2} - \lambda\end{array}\right| 
     \rightarrow trace(A) = -\frac{3}{2} + (-\frac{1}{2}) = -2 \\\\
     \hspace*{120pt} \rightarrow det(A) = (-\frac{3}{2})(-\frac{1}{2}) - (1)(-\frac{1}{4}) = \frac{3}{4} + \frac{1}{4} = 1 \\\\
@@ -170,7 +217,27 @@
      \longrightarrow \quad w_1=2w_2-4 \quad \longrightarrow \mathbf{w} =\left[\begin{array}{cc} -4 \\ 0 \end{array}\right]$ \\
 
     So our general solution is $\mathbf{x}(t) = c_1e^{-t}\begin{pmatrix} 2 \\ 1 \end{pmatrix}+ c_2e^{-t}\left[ t \begin{pmatrix} 2 \\ 1 \end{pmatrix} + \begin{pmatrix} -4 \\ 0 \end{pmatrix}\right]$
-
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that $e^{-t}$ approaches 0 in both of the terms.
+    But the $e^{-t}$ term approaches 0 faster than $te^{-t}$ term, so solutions will become parallel to the line $y=\frac{1}{2}x$ as $t \to \infty$.
+    $$\lim_{t \to \infty} \frac{c_1e^{-t}v}{c_2e^{-t}(tv+w)}  = \lim_{t \to \infty} \frac{c_1v}{c_2(vt+w)} = 0$$
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = -\tfrac{3}{2}x+1y,\text{ giving us } y=\tfrac{3}{2}x &\\
+        &\text{Set } y'=0:\text{so } 0 = -\tfrac{1}{4}x-\tfrac{1}{2}y, \text{ giving us } y=-\tfrac{1}{2}x &
+    \end{flalign*}
+    We still also have our initial eigenvalue direction of $y = \frac{1}{2}x$
+    \subsection*{Using technology to draw the phase portrait}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Homework_4_Images/HW_4_Q1c.pdf}
+    \end{figure}
+    \begin{itemize}
+        \item The black dashed line is the eigendirection $y=\frac{1}{2}x$, \\ which is the direction that solutions will become parallel to as $t \to \infty$
+        \item The red line is the $x$-nullcline $y=\frac{3}{2}x$. Trajectories cross this line \\ vertically, and above this line, $x'>0$, and below it, $x'<0$.
+        \item The green line is the $y$-nullcline $y=-\frac{1}{2}x$. Trajectories cross this line \\ horizontally, and above this line, $y'<0$, and below it, $y'>0$.
+    \end{itemize}
 \end{enumerate}
 
 \vspace{10cm}
@@ -231,9 +298,17 @@ $\hspace*{1.5cm}$ This gives us that $\left\{\begin{array}{rl} a &= 0 \\ b &= -c
 
 $\hspace*{1.5cm}$ This gives us $\left\{\begin{array}{rl} w_1 &= -1 \\ w_2 &= -1 \\ w_3 &= 0 \end{array}\right.$
   so our generalized eigenvalue is $\mathbf{w} = \left[ \begin{array}{c} -1\\ -1\\ 0\end{array}\right]$\\
-  
+
 \noindent
 So our general solution is $\mathbf{x}(t) = c_1e^{-t}\begin{pmatrix} 3 \\ -4 \\ 2 \end{pmatrix} + c_2e^{2t}\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} + c_3e^{2t}\left[ t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} + \begin{pmatrix} -1 \\ -1 \\ 0 \end{pmatrix}\right]$
 
 
+\begin{comment}
+    Show[(*1. The Vector Field*)
+ StreamPlot[{3 x - 4 y, x - y}, {x, -10, 10}, {y, -10, 
+   10}],(*2. The Nullclines*)
+ ContourPlot[{3 x - 4 y == 0, x - y == 0}, {x, -10, 10}, {y, -10, 10},
+   ContourStyle -> {Red, Green}],(*3. The Eigendirection*)
+ Plot[0.5 x, {x, -10, 10}, PlotStyle -> {Black, Dashed, Thick}]]
+\end{comment}
 \end{document}
