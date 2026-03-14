@@ -91,13 +91,13 @@
 \section*{Question 1:}
 \renewcommand{\arraystretch}{1.3}
 \begin{enumerate}
-\item[a)] $\mathbf{x'} = \begin{pmatrix} \frac{5}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{5}{4} \end{pmatrix} \mathbf{x}$ \\
+\item[a)] $\mathbf{x'} = \begin{pmatrix} \frac{5}{4} & \frac{3}{4} \\ \frac{3}{4} & \frac{5}{4} \end{pmatrix} \mathbf{x}$
+\subsection*{Finding the general Solution}    
     $\left| \begin{array}{cc} \frac{5}{4} - \lambda & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda\end{array}\right| 
     = \left(\frac{5}{4} - \lambda\right)^2 - \left(\frac{3}{4}\right)^2 = 0 \\\\
     \hspace*{95pt} = \left(\frac{5}{4} - \lambda + \frac{3}{4}\right)\left(\frac{5}{4} - \lambda - \frac{3}{4}\right) = 0 \\\\
-    \hspace*{95pt} = \left(2 - \lambda\right)\left(\frac{1}{2} - \lambda\right) = 0 \\\\
-    \hspace*{95pt} \Rightarrow \lambda_1 = 2, \lambda_2 = \frac{1}{2}$
-
+    \hspace*{95pt} = \left(2 - \lambda\right)\left(\frac{1}{2} - \lambda\right) = 0 \Rightarrow \lambda_1 = 2, \lambda_2 = \frac{1}{2}$
+    
     \subsubsection*{Eigenvalue \#1}
     $\mathbf{\lambda_1 = \phantom{-}2}: 
     \left[\begin{array}{cc} \frac{5}{4} - \lambda_1 & \frac{3}{4}\\ \frac{3}{4} & \frac{5}{4} - \lambda_1\end{array}\right]
@@ -114,19 +114,37 @@
     $\hspace*{2cm}\begin{array}{rr} 1v_1 + 1v_2 &=0 \\ 1v_1 + 1v_2 &=0 \end{array} 
     \longrightarrow \quad v_1=-v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} -1 \\ 1 \end{array}\right]$
 
-    \vspace{2cm}
-
     So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}e^{2t} + c_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}e^{\frac{1}{2}t}$
-    \\\\
-    If we take the limit as $t$ approaches infinity, we can notice both terms head to infinity, but notice that the dominant term is the one with $\lambda_1 = 2$, \\ so all trajectories will be parellel to the line $y = x$ \\
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that $e^{2t}$ approaches infinity significantly faster than $e^{0.5t}$
+    ,so solutions will become parrellel to the line $y=x$ as $t \to \infty$.
+    $$\lim_{t \to \infty} \frac{c_1e^{2t}v_1}{c_2e^{0.5t}v_2}  = \lim_{t \to \infty} \frac{c_1v_1}{c_2v_2}e^{1.5t} = \infty$$
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = \tfrac{5}{4}x+\tfrac{3}{4}y,\text{ giving us } y=-\tfrac{5}{3}x &\\
+        &\text{Set } y'=0:\text{so } 0 = \tfrac{3}{4}x+\tfrac{5}{4}y, \text{ giving us } y=-\tfrac{3}{5}x &
+    \end{flalign*}
+    We still also have our initial eigenvalue directions of $y = x$ and $y=-x$
+    \vspace{-1cm}
+    \section*{Using technology to draw the phase portrait}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1a.pdf}
     \end{figure}
+    \begin{itemize}
+        \item The black dashed line is the fast eigendirection $y=x$, which is the direction that trajectories will become parallel to as $t \to \infty$.
+        \item The brown dashed line is the slow eigendirection $y=-x$. Trajectories emerge from the origin tangent to this line as $t \to -\infty$.
+        \item The $x$-nullcline in red is $y=-\frac{5}{3}x$. Trajectories cross vertically.
+        \item The $y$-nullcline in green is $y=-\frac{3}{5}x$. Trajectories cross horizontally.
+        \item Trajectories between the nullclines spread outwards from the brown \\ eigendirection, and trajectories outside of the nullclines spread away to be parallel to the black eigendirection.
+        
+    \end{itemize}
     \vspace{12cm}
 
 
-\item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -3\\ 8 & -6 \end{pmatrix} \mathbf{x}$\\
+\item[b)] $\mathbf{x'} = \begin{pmatrix} 4 & -3\\ 8 & -6 \end{pmatrix} \mathbf{x}$
+\subsection*{Finding the general Solution} 
     $\left| \begin{array}{cc} 4 - \lambda & -3\\ 8 & -6 - \lambda\end{array}\right| 
     = (4 - \lambda)(-6 - \lambda) - (-3)(8) = 0 \\\\
     \hspace*{108pt} = -24 - 4\lambda + 6\lambda + \lambda^2 + 24 = 0 \\\\
@@ -149,19 +167,36 @@
     $\hspace*{2.2cm}\begin{array}{rr} 6v_1 - 3v_2 &=0 \\ 8v_1 - 4v_2 &=0 \end{array} 
     \longrightarrow \quad 2v_1=v_2 \quad \longrightarrow \mathbf{v}_2 =\left[\begin{array}{cc} 1 \\ 2 \end{array}\right]$
 
-    \vspace{6cm}
-
-    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}e^{2t} + c_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}e^{\frac{1}{2}t}$
-    \\\\
-    If we take the limit as $t$ approaches infinity, we can notice both terms head to infinity, but notice that the dominant term is the one with $\lambda_1 = 2$, \\ so all trajectories will be parellel to the line $y = x$ \\
+    So our general solution is $\mathbf{x} = c_1\begin{pmatrix} 3 \\ 4 \end{pmatrix} + c_2\begin{pmatrix} 1 \\ 2 \end{pmatrix}e^{-2t}$
+    \vspace{4cm}
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that ther single term $e^{-2t}$ approaches zero.
+    But the first term does not change at all,so solutions will become parrellel to the line $y=\frac{1}{2}x$ as $t \to \infty$.
+    $$\lim_{t \to \infty} \frac{c_2e^{-2t}v_2}{c_1v_1}  = 0$$
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = 4x-3y,\text{ giving us } y=\tfrac{4}{3}x &\\
+        &\text{Set } y'=0:\text{so } 0 = 8x-6y, \text{ giving us } y=\tfrac{4}{3}x &
+    \end{flalign*}
+    We still also have our initial eigenvalue directions of $y = \frac{4}{3}x$ and $y=2x$
+    \vspace{-1cm}
+    \section*{Using technology to draw the phase portrait}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1b.pdf}
     \end{figure}
+    \begin{itemize}
+        \item The brown dashed line is the eigendirection $y=2x$, which is the direction that trajectories will become parallel to as $t \to \infty$.
+        \item The black dashed line is the eigendirection $y=\frac{4}{3}x$. \\ Trajectories are just unmoving singular points on this line.
+        \item The green line are the $x-$ and $y$-nullclines $y=\frac{4}{3}x$. \\ Trajectories don't cross but stop at this line
+        \item This means that every point along the green/black lines are equlibrium points, and trajectories that start off the line will approach the line
+    \end{itemize}
     \vspace{12cm}
 
 
-\item[c)] $\mathbf{x'} = \begin{pmatrix} 3 & -2 \\ 4 & -1 \end{pmatrix} \mathbf{x}$\\
+\item[c)] $\mathbf{x'} = \begin{pmatrix} 3 & -2 \\ 4 & -1 \end{pmatrix} \mathbf{x}$
+    \subsection*{Finding the general Solution} 
     $\left| \begin{array}{cc} 3 - \lambda & -2\\ 4 & -1 - \lambda\end{array}\right| 
     = (3 - \lambda)(-1 - \lambda) - (-2)(4) = 0 \\\\
     \hspace*{95pt} = -3 - 3\lambda + \lambda + \lambda^2 + 8 = 0 \\\\
@@ -188,20 +223,38 @@
     Notice that the vectors in front of the sins and cosines are components of the eigenvector that we started with:
     
     $$\mathbf{v}_1 =\left[\begin{array}{cc} 1 \\ 1-i \end{array}\right] =\left[\begin{array}{cc} 1 \\ 1 \end{array}\right] + i\left[\begin{array}{cc} 0 \\ -1 \end{array}\right]$$
-    
-    This is a spiral source, so all trajectories will spiral outwards from the origin.
     \\\\
     Since going through all of that work with complex eigenvalues, I wonder if we could build a potential shortcut?
     If $\lambda = \mathbf{a} + \mathbf{b}i$ is an eigenvalue of $A$ with eigenvector $\mathbf{v} = \mathbf{c} + i\mathbf{d}$, then we maybe can write the solution as 
     $$\mathbf{x}(t) = e^{\mathbf{a}t}(\mathbf{c}\cos(\mathbf{b}t) - \mathbf{d}\sin(\mathbf{b}t)) + e^{\mathbf{a}t}(\mathbf{d}\sin(\mathbf{b}t) + \mathbf{c}\cos(\mathbf{b}t))$$
-        \begin{figure}[H]
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that both terms approach infinity.
+    But due to the sins and cosines, and the nature of complex solutions, all trajectories will be spiraling outwards\\\\
+    One thing I'm not quite sure of, maybe I missed it from the notes, but finding out the angle or tilt direction would be even more useful to describe the behavior of the system and to be able to better sketch it by hand.
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = 3x-2y,\text{ giving us } y=\tfrac{3}{2}x &\\
+        &\text{Set } y'=0:\text{so } 0 = 4x-1y, \text{ giving us } y=4x &
+    \end{flalign*}
+    We still also have our initial eigenvalue directions but we can't plot them since they are complex
+    \vspace{-1cm}
+    \section*{Using technology to draw the phase portrait}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1c.pdf}
     \end{figure}
+    \begin{itemize}
+        \item The eigenvalues are complex ($\lambda = 1 \pm 2i$). Since the real part is positive, the origin is an unstable spiral source.
+        \item There are no real eigendirections for this system; instead, trajectories spiral outward from the origin.
+        \item The red line is the $x$-nullcline $y = \frac{3}{2}x$. \\ Trajectories cross this line vertically.
+        \item The green line is the $y$-nullcline $y = 4x$. \\ Trajectories cross this line horizontally.
+    \end{itemize}
     \vspace{12cm}
 
 
-\item[d)] $\mathbf{x'} = \begin{pmatrix} 2 & -\frac{5}{2} \\ \frac{9}{5} & -1 \end{pmatrix} \mathbf{x}$\\
+\item[d)] $\mathbf{x'} = \begin{pmatrix} 2 & -\frac{5}{2} \\ \frac{9}{5} & -1 \end{pmatrix} \mathbf{x}$
+    \subsection*{Finding the general Solution} 
     $\left| \begin{array}{cc} 2 - \lambda & -\frac{5}{2}\\ \frac{9}{5} & -1 - \lambda\end{array}\right| 
     = (2 - \lambda)(-1 - \lambda) - (-\frac{5}{2})(\frac{9}{5}) = 0 \\\\
     \hspace*{95pt} = -2 - 2\lambda + \lambda + \lambda^2 + \frac{9}{2} = 0 \\\\
@@ -228,14 +281,31 @@
     Notice that the vectors in front of the sins and cosines are components of the eigenvector that we started with:
     
     $$\mathbf{v}_1 =\left[\begin{array}{cc} 5 \\ 3-3i \end{array}\right] =\left[\begin{array}{cc} 5 \\ 3 \end{array}\right] + i\left[\begin{array}{cc} 0 \\ -3 \end{array}\right]$$
-    
-    This is a spiral source, so all trajectories will spiral outwards from the origin.
     \\\\
     Notice that with another example, our hypothesized shortcut still works! This is pretty cool, so maybe we can just use this formula for any complex eigenvalues we get in the future and save ourselves a lot of time!
+    \subsection*{Describing the behavior of the system}
+    As $t \to \infty$, we can see that both terms approach infinity.
+    But due to the sins and cosines, and the nature of complex solutions, all trajectories will be spiraling outwards\\\\
+    One thing I'm not quite sure of, maybe I missed it from the notes, but finding out the angle or tilt direction would be even more useful to describe the behavior of the system and to be able to better sketch it by hand.
+    \subsection*{Sketching the phase portrait}
+    We want to find the nullclines of the system, so we set each derivative to 0:
+    \begin{flalign*}
+        &\text{Set } x'=0:\text{so } 0 = 2x-\tfrac{5}{2}y,\text{ giving us } y=\tfrac{4}{5}x &\\
+        &\text{Set } y'=0:\text{so } 0 = \tfrac{9}{5}x-1y, \text{ giving us } y=\tfrac{9}{5}x &
+    \end{flalign*}
+    We still also have our initial eigenvalue directions but we can't plot them since they are complex
+    \vspace{-1cm}
+    \section*{Using technology to draw the phase portrait}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\textwidth]{Homework_3_Images/HW_3_Q1d.pdf}
     \end{figure}
+    \begin{itemize}
+        \item The eigenvalues are complex ($\lambda = \frac{1}{2} \pm \frac{3}{2}i$). Since the real part is positive, the origin is an unstable spiral source.
+        \item There are no real eigendirections for this system; instead, trajectories spiral outward from the origin.
+        \item The red line is the $x$-nullcline $y = \frac{4}{5}x$. \\ Trajectories cross this line vertically.
+        \item The green line is the $y$-nullcline $y = \frac{9}{5}x$. \\ Trajectories cross this line horizontally.
+    \end{itemize}
 \end{enumerate}
 
 \vspace{10cm}
