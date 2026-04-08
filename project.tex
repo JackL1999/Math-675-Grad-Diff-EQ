@@ -2,7 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{geometry}
- \geometry{letterpaper, margin=1in}
+\usepackage{booktabs}
+\usepackage{tabularx}
+ \geometry{letterpaper, margin=0.2in}
 
 \begin{document}
 
@@ -12,10 +14,10 @@ For a one-dimensional rod, the heat conduction is governed by:
 \rho c_p \frac{\partial T}{\partial t} = k \frac{\partial^2 T}{\partial x^2}
 \]
 \begin{itemize}
-    \item $\frac{\partial T}{\partial t} = $ the rate of change of temperature with respect to time
-    \item $\frac{\partial^2 T}{\partial x^2} = $ how sensitive a specific point is to gaining or losing heat from its neighbors
-    \item $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity,
-    \item $k =$ Thermal Conductivity, $\quad$ $\rho =$ Density, $\quad$ $c_p =$ Specific Heat\\
+    \item $\frac{\partial T}{\partial t} = $ the rate of change of temperature with respect to time ($^\circ C / s$)
+    \item $\frac{\partial^2 T}{\partial x^2} = $ sensitivity of temperature changes at a specific point from its neighbors ($^\circ C / m^2$)
+    \item $t =$ Time (s), $\quad \bullet$ $x = $ Position along the rod $(m)$, $\quad \bullet$ $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity $(m^2/s)$
+    \item $\rho =$ Density $(kg/m^3)$ $\quad \bullet$ $k =$ Thermal Conductivity $(W/m\cdot^\circ C)$, $\quad \bullet$ $c_p =$ Specific Heat $(J/kg\cdot^\circ C)$
 \end{itemize}
 
 \section*{Boundary and Initial Conditions}
@@ -43,19 +45,68 @@ and force vector $\mathbf{F}^{(e)}$ are defined as:
 &\text{effectively driving the heat flow toward a linear steady-state where } \mathbf{K}\mathbf{T} = \mathbf{0}. &
 \end{flalign*}
 
-
-\section*{Real world data Equation}
-For a one-dimensional rod, the heat conduction is governed by:
+\vspace{10cm}
+Accounting for ambient air influence, the 1D heat conduction is governed by:
 \[
 \frac{\partial T}{\partial t} = \alpha \frac{\partial^2 T}{\partial x^2} - \nu(T - T_\infty)
 \]
 \begin{itemize}
-    \item $\frac{\partial T}{\partial t} = $ the rate of change of temperature with respect to time
-    \item $\frac{\partial^2 T}{\partial x^2} = $ how sensitive a specific point is to gaining or losing heat from its neighbors
-    \item $t =$ Time (s), $\quad$ $x = $ Position along the rod (m)
-    \item $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity,
-    \item $k =$ Thermal Conductivity, $\quad$ $\rho =$ Density, $\quad$ $c_p =$ Specific Heat
-    \item $T =$ Temperature ($^\circ$C), $\quad$ $T_{\infty} =$ Ambient Temperature ($^\circ$C)
+    \item $\nu$: Convection Coefficient $(s^{-1})$ $\quad \bullet$ $T =$ Temperature ($^\circ$C), $\quad \bullet$ $T_{\infty} =$ Ambient Temperature ($^\circ$C)
 \end{itemize}
+
+\[
+\frac{\partial T}{\partial t} = \alpha \frac{\partial^2 T}{\partial x^2} - \nu(T - T_\infty)
+\quad
+\begin{aligned}
+    &\bullet \nu: \text{Convection Coefficient } (s^{-1}) \\ 
+    &\bullet T = \text{Temperature } (^{\circ}\text{C}) \\ 
+    &\bullet T_{\infty} = \text{Ambient Temperature } (^{\circ}\text{C})
+\end{aligned}
+\]
+
+\vspace{10cm}
+
+
+\begin{table}[h]
+\centering
+\label{tab:material_comparison}
+\begin{tabularx}{\textwidth}{lXXX}
+\toprule
+\textbf{Property} & \textbf{Copper (Bulk)} & \textbf{Additive (3D-Printed)} & \textbf{Physical Interpretation} \\
+\midrule
+Conductivity ($k$) & $384.72$ W/m$\cdot$K & $14.40$ W/m$\cdot$K & XN is $\approx$ 26x more resistive to heat flow than Cu. \\
+\addlinespace
+Diffusivity ($\alpha$) & $0.0738$ m$^2$/s & $0.0213$ m$^2$/s & Cu reaches steady state $\approx$ 3.5x faster than XN. \\
+\addlinespace
+Convection ($h$) & $165.41$ W/m$^2\cdot$K & $128.70$ W/m$^2\cdot$K & Variations due to ambient lab/wind conditions. \\
+\addlinespace
+Avg. Std. Error & $0.95$ & $0.73$ & Low error validates 1D FEA model robustness. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+
+\begin{table}[h]
+\centering
+\caption{Thermal Parameter Comparison: Bulk Copper vs. 3D-Printed Steel (XN)}
+\label{tab:material_comparison}
+% We use 'l' for the labels and 'c' for the numbers to keep them tight. 
+% The final 'X' column will take up all the remaining horizontal space.
+\begin{tabularx}{\textwidth}{l c c X}
+\toprule
+\textbf{Property} & \textbf{Copper} & \textbf{3D Printed} & \textbf{Physical Interpretation} \\
+\midrule
+Conductivity ($k$) & $384.72$ W/m$\cdot^{\circ}\text{C}$ & $14.40$ W/m$\cdot^{\circ}\text{C}$ & 3DP is $\approx$ 26x more resistive to heat flow than Cu. \\
+\addlinespace
+Diffusivity ($\alpha$) & $0.0738$ m$^2$/s & $0.0213$ m$^2$/s & Cu reaches steady state $\approx$ 3.5x faster than 3DP. \\
+\addlinespace
+Convection ($h$) & $165.41$ W/m$^2\cdot^{\circ}\text{C} $& $128.70$ W/m$^2\cdot^{\circ}\text{C}$ & Variations due to ambient lab/wind conditions. \\
+\addlinespace
+Avg. Std. Error & $0.95$ & $0.73$ & Low error validates 1D FEA model robustness. \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \end{document}

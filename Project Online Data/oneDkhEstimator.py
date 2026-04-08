@@ -62,14 +62,14 @@ wb = Workbook() # Workbook is created
 #select files to run. Files must be a .txt format with time, temperature
 filefolder="/home/jack99/Documents/VSCode/Math-675 Grad Diff EQ/Project Online Data/" #location of data
 excelsaveloc="/home/jack99/Documents/VSCode/Math-675 Grad Diff EQ/Project Online Data/" #location to save excel file of results
-plotsaveloc="/home/jack99/Documents/VSCode/Math-675 Grad Diff EQ/Project Online Data/" #location to save plots
+plotsaveloc="/home/jack99/Documents/VSCode/Math-675 Grad Diff EQ/Project Images/" #location to save plots
 
-filesave='sstest'  #Excel filename
+filesave='ADDXNSS'  #Excel filename
 
 # Select Wind, Temperature or additive rod to Test
 
 #Wind = False
-Temp = False #True for increase from 0, False for decrease from max
+Temp = False
 XN = True
 #YN = True
 #XP = True
@@ -77,8 +77,8 @@ XN = True
 
 # Select material:
 
-#Al = True
-#SS = True
+#Al = False
+#SS = False
 #Cu = True
 ADD = True
 
