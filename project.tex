@@ -14,7 +14,8 @@ For a one-dimensional rod, the heat conduction is governed by:
 \begin{itemize}
     \item $\frac{\partial T}{\partial t} = $ the rate of change of temperature with respect to time
     \item $\frac{\partial^2 T}{\partial x^2} = $ how sensitive a specific point is to gaining or losing heat from its neighbors
-    \item $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity. \\
+    \item $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity,
+    \item $k =$ Thermal Conductivity, $\quad$ $\rho =$ Density, $\quad$ $c_p =$ Specific Heat\\
 \end{itemize}
 
 \section*{Boundary and Initial Conditions}
@@ -41,5 +42,20 @@ and force vector $\mathbf{F}^{(e)}$ are defined as:
 &\text{The vector } \mathbf{b}_{bc} \text{ enforces the fixed temperatures at the boundaries } (100^\circ\text{F}, 20^\circ\text{F}), & \\
 &\text{effectively driving the heat flow toward a linear steady-state where } \mathbf{K}\mathbf{T} = \mathbf{0}. &
 \end{flalign*}
+
+
+\section*{Real world data Equation}
+For a one-dimensional rod, the heat conduction is governed by:
+\[
+\frac{\partial T}{\partial t} = \alpha \frac{\partial^2 T}{\partial x^2} - \nu(T - T_\infty)
+\]
+\begin{itemize}
+    \item $\frac{\partial T}{\partial t} = $ the rate of change of temperature with respect to time
+    \item $\frac{\partial^2 T}{\partial x^2} = $ how sensitive a specific point is to gaining or losing heat from its neighbors
+    \item $t =$ Time (s), $\quad$ $x = $ Position along the rod (m)
+    \item $\alpha = \frac{k}{\rho c_p}$ is the thermal diffusivity,
+    \item $k =$ Thermal Conductivity, $\quad$ $\rho =$ Density, $\quad$ $c_p =$ Specific Heat
+    \item $T =$ Temperature ($^\circ$C), $\quad$ $T_{\infty} =$ Ambient Temperature ($^\circ$C)
+\end{itemize}
 
 \end{document}
