@@ -1,0 +1,268 @@
+\documentclass[12pt]{article}                         
+\pagestyle{plain} %-- Document Set Up Command
+
+%-- Document Setup & Layout
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[
+  letterpaper,
+  left=0.80in,
+  right=0.80in,
+  textheight=9.5in,
+  bmargin=0.75in  % Adjust this value to push the footer down
+]{geometry}
+
+%-- Color & Text Formatting
+\usepackage[svgnames]{xcolor} 
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{textcomp}
+\usepackage{ulem}
+\usepackage{graphicx}
+
+%-- Math Packages
+\usepackage{amsmath}     
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{bm}
+
+%-- Graphics and Figures
+\usepackage{graphicx}    
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circledtext}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%-- Tables
+\usepackage{array}      
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+
+%-- Lists
+\usepackage{enumitem}    
+%\usepackage{enumerate}
+\usepackage{tasks}
+\tcbuselibrary{theorems}
+\usepackage{hyperref}
+\usetikzlibrary{shapes.geometric} 
+\usetikzlibrary{arrows.meta}
+
+%-- Header/Footer
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{Your Name} % Left header with name
+\fancyhead[R]{October 14th 2025} % Right header with date
+\renewcommand{\headrulewidth}{0.4pt} % Horizontal line below the header
+
+\newenvironment{AndreaBox}[1]{
+\begin{tcolorbox}[
+    title=#1,
+    colback=white,
+    colframe=Blue,
+    coltitle=white,
+    fonttitle=\bfseries,
+    colback=white,
+    rounded corners,
+    boxrule=0.5pt,
+    top=1mm, bottom=1mm, left=4mm, right=-2mm, % right padding creates the long bar
+    rounded corners,
+    boxrule=0.5pt,
+] \raggedright
+}{\end{tcolorbox}}
+
+\begin{document}
+
+% Main title
+\begin{center}
+    \Large \textbf{Diff EQ Proof Thingy} \\
+    \vspace{0.2cm}
+\end{center}
+
+\section*{Main Theorem and Lemmas}
+\begin{AndreaBox}{Main Theorem}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 1}}
+        \item Let $\mathbf{x}_0 \in \mathbb{R}^n$ and consider the automonomous IVP:
+        \[\mathbf{x}'(t) = \mathbf{F}(\mathbf{x}(t)) \quad \quad \mathbf{x}(0) = \mathbf{x}_0\]
+        \item Let $\mathcal{O}_\rho \subset \mathbb{R}^n$ be a closed ball of radius $\rho > 0$ centered at $\mathbf{x}_0$ suppose that $\mathbf{F}: \mathcal{O}_\rho \rightarrow \mathbb{R}^n$ is Lipschitz on $\mathcal{O}_\rho$.
+        \item Then, $\exists$ a unique solution to this IVP. More precisely $\exists a>0$ and a unique solution on some time interval
+        $$ \mathbf{x}: (-\alpha,\alpha) \rightarrow \mathbb{R}^n$$
+        \item of this system satisfying the initial condition: $\mathbf{x}(0)=\mathbf{x}_0$
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{Lemma 1:}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 1}}
+        \item Let $\mathbf{x}_0 \in \mathbb{R}^n$ and suppose that $J$ is an open interval containing zero.
+        \item Let $\mathbf{x}:J \rightarrow \mathbb{R}^n$ be a differentiable vector-valued function. Then $\mathbf{x}(t)$ solves the IVP
+        \[\mathbf{x}'(t) = \mathbf{F}(\mathbf{x}(t)), \quad \quad \mathbf{x}(0)=\mathbf{x}_0 \tag*{ (1)\makebox[0.5cm]{} }\]
+        \item if and only if
+        \[\mathbf{x}(t) = \mathbf{x}_0 + \int_{0}^{t} {\mathbf{F}(\mathbf{x}(t))} ds, \quad \quad \forall t \in J \tag*{ (2)\makebox[0.5cm]{} }\]
+        
+
+    \end{itemize}
+\end{AndreaBox}
+
+\begin{AndreaBox}{Lemma 2:}
+    \begin{itemize}[label={}, leftmargin=1mm, nosep]
+        \item {\color{RoyalBlue}\textbf{Learning Goal 1}}
+        \item Let $J$ be aclosed interval. Suppose 
+        \[ \mathbf{u}_k: J \rightarrow \mathbb{R}^n \quad \quad k=0,1,2...\]
+        \item is a sequence of continuous functions that satisfy: $\forall \boldsymbol{\varepsilon} >0, \exists$ some $N > 0$ such that for every $m,n\geq N$
+        \[ \sup_{t \in J} \Vert \mathbf{u}_k(t) - \mathbf{u}(t) \Vert \to \boldsymbol{\varepsilon} \tag*{ (3)\makebox[0.5cm]{} }\]
+        \item Then $\exists$ a continuous function $\mathbf{u}:J \rightarrow \mathbb{R}^n$ such that
+        \[ \sup_{t \in J} \Vert \mathbf{u}_k(t) - \mathbf{u}(t) \Vert \to 0, \quad \quad \text{as } k \to \infty \tag*{ (4)\makebox[0.5cm]{} }\]
+        \item Moreover for any $t \in J$
+        \[ \lim_{k \to \infty} \int_{0}^{t} \mathbf{u}_k(s) ds = \int_{0}^{t} \mathbf{u}(s) ds \tag*{ (5)\makebox[0.5cm]{} } \]
+        
+        
+
+    \end{itemize}
+\end{AndreaBox}
+
+\section*{Starting Proof}
+\textbf{Proof} To prove this lemma, we use the Fundamental Theorem of Calculus\\\\
+\noindent
+\begin{minipage}[t]{0.55\textwidth}
+    \textbf{$(\Leftarrow)$} \\[6pt]
+    \text{Define } $\displaystyle \mathbf{x}(t) = \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$ \\[6pt]
+    \text{Differentiate: } \\
+    $\displaystyle \frac{d}{dt} \mathbf{x}(t) = \frac{d}{dt}(\mathbf{x}_0) + \frac{d}{dt}\int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$ \\[12pt]
+    \text{Giving us: }
+    $\mathbf{x}'(t) = 0 + \mathbf{F}(\mathbf{x}(t)) = \mathbf{F}(\mathbf{x}(t))$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+    \textbf{$(\Rightarrow)$} \\
+    \text{Suppose } $\mathbf{x}(t)$ \text{ satisfies } $\mathbf{x}'(t) = \mathbf{F}(\mathbf{x}(t))$ \\[6pt]
+    \text{Integrate using FTC: } 
+    $\displaystyle \int_{0}^{t} \mathbf{x}'(s) \, ds = \int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$ \\[6pt]
+    \text{Expand: } 
+    $\displaystyle \mathbf{x}(t) - \mathbf{x}(0) = \int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$ \\[6pt]
+    \text{Giving us: } 
+    $\displaystyle \mathbf{x}(t) = \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$
+\end{minipage}
+
+\vspace{2cm}
+
+\section*{Picard Iteration Definition}
+Define a sequence of functions: $\mathbf{x}_1(t), \mathbf{x}_2(t),...,\mathbf{x}_k(t)$ that approximates the "true" solution of $\mathbf{x}'(t) = \mathbf{F}(\mathbf{x}(t))$
+Define an iterative sequence composted of Picard Iterates:
+\begin{align*}
+    \mathbf{x}_0(t) &= \mathbf{x}_0 \text{ which is a constant vector} \\
+    \mathbf{x}_1(t) &= \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds \\
+    \mathbf{x}_2(t) &= \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}_1(s)) \, ds \\
+    \quad \vdots \quad & \quad \vdots \quad \quad \vdots \quad \quad \vdots \quad \quad \vdots \\
+    \mathbf{x}_1(t) &= \mathbf{x}_{k+1} + \int_{0}^{t} \mathbf{F}(\mathbf{x}_k(s)) \, ds
+\end{align*}
+Now, informally, assuming $\mathbf{x}_k(t) \rightarrow \mathbf{x}(t)$ converges uniformally.\\
+So, roughly speaking, as $k \rightarrow \infty$ then $\displaystyle \mathbf{x}(t) = \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}(s)) \, ds$
+
+\vspace{10cm}
+\section*{Picard Iteration Proof}
+\textbf{Existence} The Theorem will be proved by the method of Picard Iteration\\\\
+The following are assumptions we will need:
+\begin{enumerate}
+    \item Lipschitz constant for $\mathbf{F}$ on $\mathcal{O}_\rho$ is $B$
+    \item $\Vert \mathbf{F}(w) \Vert \leq M$, bounded $\forall w \in \mathcal{O}_\rho$ 
+    \item Choose $\alpha < \min \left\{ \frac{\rho}{M}, \frac{1}{B} \right\}$
+\end{enumerate}
+
+\subsubsection*{Proof Step 1}
+Define a domain $J = [-\alpha, \alpha]$ with $\mathcal{O}_\rho \in J$ \\
+Define Picard Iterates from the rough sketch from before: 
+$$\mathbf{x}_{k+1} = \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds,
+\quad \quad k=-1,0,1,\ldots \text{ with } \mathbf{x}_0 \in \mathcal{O}_\rho$$
+This shows/proves that $\mathbf{x}_k \in \mathcal{O}_\rho $because??? \\
+Let's now consider the initial point $\mathbf{x}(0) = \mathbf{x}_0$, thus for $t \in J=[-\alpha,\alpha]$
+$$\mathbf{x}_{k+1} = \mathbf{x}_0 + \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds
+= \mathbf{x}_0 + t\mathbf{F}(\mathbf{x}_0)$$
+
+\noindent
+We can take the modulus of both sides to find a bound for the difference of terms in the sequence
+\begin{align*}
+\mathbf{x}_1(t) &=  \mathbf{x}_0  + \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds \\
+\mathbf{x}_1(t) &- \mathbf{x}_0  = \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds \\
+\Vert \mathbf{x}_1(t) &- \mathbf{x}_0 \Vert = \left\Vert \int_{0}^{t} \mathbf{F}(\mathbf{x}_0(s)) \, ds \right\Vert \\
+\Vert \mathbf{x}_1(t) &- \mathbf{x}_0 \Vert = \Vert t \cdot \mathbf{F}(\mathbf{x}_0)\Vert \\
+\Vert \mathbf{x}_1(t) &- \mathbf{x}_0 \Vert = \Vert t \Vert \cdot \Vert \mathbf{F}(\mathbf{x}_0)\Vert 
+\end{align*}
+
+\noindent
+Now, since our time chosen in inside the domain $|t| < \alpha$ and assumed $\Vert \mathbf{F}(\mathbf{x}_0) \Vert \leq M$ 
+$$\Vert \mathbf{x}_1(t) - \mathbf{x}_0 \Vert \leq \alpha \cdot M \leq \frac{\rho}{M} \cdot M \leq \rho$$
+
+\noindent
+Thus, we now have that $\Vert \mathbf{x}_1(t) - \mathbf{x}_0 \Vert \leq \rho$ for all $t \in J=[-\alpha,\alpha]$, We get $\mathbf{x}_1 \in \mathcal{O}_\rho$ closed ball with radius $\rho$ centered at $\mathbf{x}_0$
+For each next Picard Iterate, we could do the same bounding method which may give us a different answer, but with induction, we could show that $\mathbf{x}_k(t) \in \mathcal{O}_\rho$ 
+\\\\
+Claim: There exists a constant $L \geq 0$ st $\forall k$ and $\Vert \mathbf{x}_{k+1}(t) - \mathbf{x}_k(t) \Vert \leq (\alpha B)^k \cdot L$
+
+\vspace{5cm}
+\subsubsection*{Proof Step 2}
+We remember/need the following mapping
+$ \mathbf{F}: \mathbb{R}^n \rightarrow \mathbb{R}^n$ and $\mathbf{F}:\mathcal{O}_\rho \rightarrow \mathbb{R}^n$ \\
+Also note that with the given time domain $J = [-\alpha, \alpha]$, our sequence $\mathbf{x}_k$ does not ever leave $\mathcal{O}_\rho$ because we showed that $\Vert \mathbf{x}_1(t) - \mathbf{x}_0 \Vert \leq \rho$.
+We also need to remind ourselves of a few things: 
+\begin{enumerate}
+    \item Lipschitz constant for $\mathbf{F}$ on $\mathcal{O}_\rho$ is $B$ 
+    \item Closed ball of Radius $\rho > 0$ 
+    \item The point $\mathbf{x}_0$ is the center of $\mathcal{O}_\rho$
+\end{enumerate}
+
+\subsubsection*{Proof of above Claim}
+Let $L = \displaystyle \sup_{t \in J} \Vert \mathbf{u}_k(t) - \mathbf{u}(t) \Vert $ by previous work, so then notice that $L \leq \alpha \cdot M$ \\
+In order to bound the next Picard Iterate, $\mathbf{x}_2$, we need a slightly different method since $\displaystyle \int_{0}^{t} \mathbf{F}(\mathbf{x}_1(s)) \, ds$ is not as simple because $\mathbf{F}(\mathbf{x}_1)$ is not a constant, so let's brute force this\\
+\begin{align*}
+ \hspace{8em} \Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &= \left\Vert \int_{0}^{t} \mathbf{F}(\mathbf{x}_1(s)) - \mathbf{F}(\mathbf{x}_0(s)) \, ds \right\Vert \text{ with } \mathbf{F}(\mathbf{x}_1) = \mathbf{x}_2 \\
+ \hspace{8em} \Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  \int_{0}^{t} \Vert \mathbf{F}(\mathbf{x}_1(s)) - \mathbf{F}(\mathbf{x}_0(s)) \Vert \, ds 
+\end{align*}
+Given that $\mathbf{F}$ is Lipschitz, we could remember that $\Vert \mathbf{F}(w) - \mathbf{F}{d} \Vert \leq B \Vert w - d \Vert$. 
+\begin{align*}
+\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  \int_{0}^{t} B \Vert \mathbf{x}_1(s) - \mathbf{x}_0 \Vert \, ds \\
+\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  B \int_{0}^{t}  \Vert \mathbf{x}_1(s) - \mathbf{x}_0 \Vert \, ds
+\end{align*}
+Now, recall that $L = \displaystyle \sup_{t \in J} \Vert \mathbf{u}_k(t) - \mathbf{u}(t) \Vert < \alpha \cdot M$ and that $|t|<\alpha$.
+\begin{align*}
+\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  B \int_{0}^{t} L \, ds \\
+\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  B \cdot (t \cdot L) \, ds \\
+\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert &\leq  B \cdot (\alpha \cdot L)
+\end{align*}
+Once again, by induction, we could justify the following bound for any term in the sequence:
+\[ \Vert \mathbf{x}_{1}(t) - \mathbf{x}_{0}(t) \Vert \leq L\]
+\[ \Vert \mathbf{x}_{2}(t) - \mathbf{x}_{1}(t) \Vert \leq (\alpha B) \cdot L\]
+\[ \Vert \mathbf{x}_{3}(t) - \mathbf{x}_{2}(t) \Vert \leq (\alpha B)^2 \cdot L\]
+\[\quad \vdots \quad \quad \vdots \quad \quad \vdots \quad \quad \vdots \quad \quad \vdots \]
+\[ \Vert \mathbf{x}_{k+1}(t) - \mathbf{x}_k(t) \Vert \leq (\alpha B)^k \cdot L\]
+
+\vspace{5cm}
+\subsubsection*{Main Theorem Proof}
+Okay so, let $\gamma = \alpha \cdot B$ and notice that $\gamma < 1$ by definition of $\alpha < \min \left\{ \frac{\rho}{M}, \frac{1}{B} \right\}$\\
+Given any $\varepsilon > 0$, we may choose any $N \in \mathbb{N}$ st for any $p,q \in N$ (not sequential), then we have
+\[ \Vert \mathbf{x}_{p}(t) - \mathbf{x}_{q}(t) \Vert \leq \sum_{k=N}^{\infty} {\Vert \mathbf{x}_{k+1}(t) - \mathbf{x}_{k}(t) \Vert}\]
+This is technically a Telescoping Series, if we expand the sum, then use the triangle inequality, this series will only leave the end points $\mathbf{x}_p(t)$ and $\mathbf{x}_q(t)$.
+We are not indexing the sequence \\ "in order", meaning $\mathbf{x}_1,\mathbf{x}_2,\mathbf{x}_3,\ldots\mathbf{x}_n$ etc, 
+this is saying perform Picard Iteration more and more times between $\mathbf{x}_p(t)$ and $\mathbf{x}_q(t)$. 
+Consider the Riemann sum for integration, in that sum the upper limit is Infinity but that allows us to have near infinite terms on the interval $[a,b]$ 
+as $dx \rightarrow 0$, this is a similar idea, we're just making our Picard Iteration even more dense and forcing more terms between $\mathbf{x}_p(t)$ and $\mathbf{x}_q(t)$ to near infinifty
+
+\[ \sum_{k=N}^{\infty} {\Vert \mathbf{x}_{k+1}(t) - \mathbf{x}_{k}(t) \Vert} \leq \sum_{k=N}^{\infty} (\alpha B)^k \cdot L \leq \sum_{k=N}^{\infty} \gamma^k \cdot L\]
+Since we obtained an upper bound for $\Vert \mathbf{x}_{p}(t) - \mathbf{x}_{q}(t) \Vert$, notice now this is a strangly simple geometric series.
+But if we are careful and choose a $N \in \mathbb{N}$ that's large enough, we skip the first $N$ values in the series, which basically only gives the tail-end of the geometric series\\
+
+\noindent
+Now, again, choosin an $N \in \mathbb{N}$ large enough such that $\displaystyle \sum_{k=N}^{\infty} \gamma^k \cdot L < \varepsilon$\\
+This then converges by Geometric Series since $\gamma < 1$ \\
+and we also showed this converges uniformally!\\\\
+
+\noindent
+Thus the lemma is satifies and the theorem is true! $\blacksquare$
+
+\end{document}
