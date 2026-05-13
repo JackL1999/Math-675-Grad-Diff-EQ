@@ -137,33 +137,68 @@ The following questions refer to the proof of existence and uniqueness covered i
     \item[a)] \textbf{Why do we choose a small time interval?} \\
     In the proof we chose $\alpha < min\left\{\frac{\rho}{M},\frac{1}{B}\right\}$
     \begin{enumerate}
-        \item Explain in words why we need the condition $\alpha < \frac{\rho}{M}$
-        \item Explain in words why we need the condition $\alpha < \frac{1}{B}$
-        \item What could go wrong if $\alpha$ was too large?
+        \item Explain in words why we need the condition $\alpha < \frac{\rho}{M}$ \\
+        We need this in order to bound the first iteration by $\rho$ similarly as $\varepsilon$
+        \[\Vert x_1(t) - x_0 \Vert = \Vert t \Vert \cdot \Vert \mathbf{F}(x_0) \Vert \leq \alpha M \leq \frac{\rho}{M} \cdot M \leq \rho\]
+        This makes sure that $\forall k, x_k$ remains inside $\mathcal{O}_{\rho}$ centered about $x_0$
+        
+        \item Explain in words why we need the condition $\alpha < \frac{1}{B}$\\
+        We need this in order for the normed difference of sequential iterations to be less than epsilon for convergence. 
+        So the $(\alpha B)^k$ term below can get small as we let $k$ be big, which means the iterations get closer together
+        \[\Vert \mathbf{x}_{k+1}(t) - \mathbf{x}_k(t) \Vert \leq (\alpha B)^k \cdot L\]
+        Later on, we use $\gamma = \alpha B < 1$ so that we can build a convergent geometric series to compare with the normed telecoping series of iterations
+        
+        \item What could go wrong if $\alpha$ was too large? \\
+        This could cause $x_k$ to leave $\mathcal{O}_{\rho}$, which may not guarentee convergence for the ODE solution, and the geometric series $\sum \gamma$ may not converge
     \end{enumerate}
 
     \item[b)] \textbf{Staying inside the closed ball} \\
     Suppose we have $x_{k+1}(t) = x_0 + \int_{0}^{t} F(x_k(x))ds$
     \begin{enumerate}
-        \item Why is it important that all iterates stay inside $\mathcal{O}_{\rho}$
-        \item What assumptions about $F$ would fail if an iterate left $\mathcal{O}_{\rho}$?
-        \item Explain how the bound $\Vert F(w) \Vert \leq M$ is used in this step
+        \item Why is it important that all iterates stay inside $\mathcal{O}_{\rho}$ \\
+        If we stay $\mathcal{O}_{\rho}$, we then have keep the Lipschitz condition true, \\ we can bound the slope of $\mathbf{F}$ on the domain
+
+        \item What assumptions about $F$ would fail if an iterate left $\mathcal{O}_{\rho}$?\\
+        If $x' \notin \mathcal{O}_{\rho}$ then $\Vert \mathbf{F}(x') \Vert$ would not be bounded by $M$
+
+        \item Explain how the bound $\Vert F(w) \Vert \leq M$ is used in this step \\
+        Like before, we can use this to bound the first normed difference and the following terms recussively
+        \[\Vert x_1(t) - x_0 \Vert = \Vert t \Vert \cdot \Vert \mathbf{F}(x_0) \Vert \leq \alpha M \leq \frac{\rho}{M} \cdot M \leq \rho\]
+
     \end{enumerate}
 
     \item[c)] \textbf{Role of Lipschitz Condition} \\
     The proof uses $\Vert F(x) - F(y) \Vert \leq B \Vert x - y \Vert$
     \begin{enumerate}
-        \item Where in the proof is this condition used?
-        \item Why is continuity of $F$ alone not enough for the argument?
-        \item In your own words, what does the Lipschitz condition guarentee?
+        \item Where in the proof is this condition used? \\
+        \[\Vert \mathbf{x}_2(t) - \mathbf{x}_1(t) \Vert \leq \int_{0}^{t} \Vert \mathbf{F}(\mathbf{x}_1(s)) - \mathbf{F}(\mathbf{x}_0(s)) \Vert \, ds \]
+        \[ \leq \int_{0}^{t} B \Vert \mathbf{x}_1(s) - \mathbf{x}_0 \Vert \, ds \leq B \cdot t \cdot L \leq \alpha \cdot B \cdot L\]
+
+        \item Why is continuity of $\mathbf{F}$ alone not enough for the argument? \\
+        Would not guarentee that the slope of $\mathbf{F}$ won't be too large or blow up.
+        The best we would be able to do is bound $\Vert \mathbf{F}(x_{k+1}) - \mathbf{F}(x_k) \Vert$ by 2$M$ by triangle inequality,
+        yet we also have no guarentee that $\sum (\alpha M)^k$ would not blows up to infinity.
+
+        \item In your own words, what does the Lipschitz condition guarentee?\\
+        This condition allows us to always bound $\Vert x_{k+1} - x_{k} \Vert$ by the $(\alpha B)^k L$ term.
+        Which, as $k \rightarrow \infty$, then $\Vert x_{k+1} - x_{k} \Vert \rightarrow 0$
+
     \end{enumerate}
 
     \item[d)] \textbf{Why does a geometric series appear?} \\
     We obtained an estimate $\Vert x_{k+1}(t) - x_k(t) \Vert \leq (\alpha B)^k L$
     \begin{enumerate}
-        \item Why is it important that $\alpha B < 1$?
-        \item What would happen if $\alpha B \geq 1$
-        \item How does this estimate lead to convergence of $\{x_k\}$
+        \item Why is it important that $\alpha B < 1$? \\
+        So that the geometric series $\sum (\alpha B)^k L \leq \sum (\gamma)^k L$ converges
+
+        \item What would happen if $\alpha B \geq 1$ \\
+        This would result in $\sum (\alpha B)^k$ not converging and thus $\sum \Vert x_{k+1} - x_k \Vert \nless \varepsilon$, meaning the need lemma for convergence could not be applied
+
+        \item How does this estimate lead to convergence of $\{x_k\}$ 
+        \[\sum_{k=N}^{\infty} \Vert x_{k+1} - x_k \Vert = \Vert x_{N+1} - x_N \Vert + \Vert x_{N+2} - x_{N+1} \Vert + \dots \] 
+        \[\hspace*{5cm} \le (\alpha B)^N L + (\alpha B)^{N+1} L + \dots = \sum_{k=N}^{\infty} (\alpha B)^k L < \varepsilon\] 
+        since $(\alpha B) < 1$, RHS converges by Cauchy Conditions, so LHS does too.
+        and since LHS sum converges to less than epsilon, then there exists a function that $\{x_k\}$ converges to. So we now have $\{x_k(t)\} \rightarrow x(t)$
     \end{enumerate}
 
     \item[e)] \textbf{Conceptual comparison} \\
@@ -173,9 +208,21 @@ The following questions refer to the proof of existence and uniqueness covered i
         \item Solving the integral equation $x(t) = x_0 + \int_{0}^{t} F(x(s))ds$
     \end{itemize}
     \begin{enumerate}
-        \item What plays the role of the function being iterated?
-        \item What plays the role of the fixed point?
-        \item Why is this analogy useful?
+        \item What plays the role of the function being iterated? \\
+        With Fixed point iteration, we want to obtain a single value for $x^*$ that 
+        gets iterated from $x_k$. But in Picard iteration, we want to obtain some 
+        sized vector $\vec{x}^*$ from iterating that same sized vector $\vec{x_k}$
+
+        \item What plays the role of the fixed point? \\
+        Like above, we want $x^*$ or $\vec{x}^*$ as the fixed point as $k \rightarrow \infty$
+
+        \item Why is this analogy useful? \\
+        This allows us to connect multiple fields in math that we have learned. 
+        Like how a fixed point problem could be turned into a root finding problem. 
+        Now an system of ODE became a fixed point problem.
+        Yet also gives us a better conceptual of whats actually going on behind the scenes.
+        
+
     \end{enumerate}
 \end{enumerate}
 
